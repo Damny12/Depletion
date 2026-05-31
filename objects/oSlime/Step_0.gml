@@ -42,7 +42,7 @@ if (place_meeting(x+xspd,y,_ground)){
 	xspd=0
 }
 
-//owies
+//damaging
 for (var i=0;i<array_length(_enemies);i++){
 	if (place_meeting(x,y,_enemies[i]) and iframes<=0 and sprite_index!=sSlimeAttack){
 		oxygen-=enemyDrain*drainMult

@@ -29,6 +29,19 @@ enemies=[dropoff,pit,higher,plateu]
 roommin=4
 roommax=7
 
+function PositionDifference(tilegroup){
+    var _firstX=tilegroup[0][0]
+    var _lastX=tilegroup[array_length(tilegroup)][0]
+    
+    var _firstY=tilegroup[0][1]
+    var _lastY=tilegroup[array_length(tilegroup)][1]
+    
+    return([
+        _firstX-_lastX,
+        _firstY-_lastY
+    ])
+}
+show_debug_message(PositionDifference(dropoff))
 
 function TileGround(tiles){
 	//tile
@@ -64,7 +77,7 @@ function TileGround(tiles){
 		
 		if enemy>=2 {
 			y+=32
-			instance_create_layer(x,y,"Enemy",array_get(global.enemies,enemy-2))
+			instance_create_layer(x,y,"Enemy",global.enemies[enemy-2])
 		}
 	}
 }

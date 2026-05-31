@@ -73,10 +73,11 @@ if (Count(skillSet,"Poison")==0){
 
 //currency
 global.finalOxygen=floor(oxygen)
+global.finalEnemyKillCoins=0
 
 //modifier creation
 for (var i =0;i<array_length(global.modifiers);i++){
 	instance_create_depth(372+i*32,y+128,3,CardModifier,{
-		sprite_index:array_get(global.modifiers,i)
+		sprite_index:global.modifiers[i]
 	})
 }
