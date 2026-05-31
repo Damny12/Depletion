@@ -45,7 +45,7 @@
   "origin":7,
   "parent":{
     "name":"crab",
-    "path":"folders/graphics/Enemies/crab.yy",
+    "path":"folders/graphics/enemies/crab.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

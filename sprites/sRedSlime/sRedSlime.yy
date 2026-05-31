@@ -26,7 +26,7 @@
   "origin":7,
   "parent":{
     "name":"red_slime",
-    "path":"folders/graphics/Enemies/red_slime.yy",
+    "path":"folders/graphics/enemies/red_slime.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
