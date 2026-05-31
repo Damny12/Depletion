@@ -42,7 +42,6 @@
   "resources":[
     {"id":{"name":"GUI_Font_Italic","path":"fonts/GUI_Font_Italic/GUI_Font_Italic.yy",},},
     {"id":{"name":"GUI_Font","path":"fonts/GUI_Font/GUI_Font.yy",},},
-    {"id":{"name":"README","path":"notes/README/README.yy",},},
     {"id":{"name":"GUI_Handler","path":"objects/GUI_Handler/GUI_Handler.yy",},},
     {"id":{"name":"Image","path":"objects/Image/Image.yy",},},
     {"id":{"name":"oButton","path":"objects/oButton/oButton.yy",},},
