@@ -1,0 +1,2 @@
+waiter=noone
+activated=false
