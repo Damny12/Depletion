@@ -4,6 +4,10 @@ var left_key = keyboard_check(vk_left)||keyboard_check(ord(global.leftKey))
 var up_key = keyboard_check_pressed(vk_space)||keyboard_check(ord(global.spaceKey))
 var attack_key = keyboard_check(ord("E"))||keyboard_check(ord(global.attackKey))
 
+if (sign(xspd) != 0){
+    prevDir=sign(xspd)
+}
+
 if (keyboard_check(vk_escape)&&keyboard_check(vk_shift)) {
     game_end(0)
 }
@@ -184,6 +188,9 @@ if (attack_key && attackDebounce<=0){
 	attackObject=instance_create_layer(x,y,"PlayerStuff",oAttack,{
         image_xscale:sign(xspd)
     })
+    if (sign(xspd)==0){
+        attackObject.image_xscale=prevDir
+    }
 	attackDebounce=attackCooldown+attackLength
 }
 

@@ -32,6 +32,7 @@
     {"$GMObjectProperty":"v2","%Name":"func","filters":[],"listItems":[],"multiselect":false,"name":"func","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"function() {room_goto(Levels)}","varType":4,},
     {"$GMObjectProperty":"v2","%Name":"font_size","filters":[],"listItems":[],"multiselect":false,"name":"font_size","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"5","varType":0,},
     {"$GMObjectProperty":"v2","%Name":"task","filters":[],"listItems":[],"multiselect":false,"name":"task","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"function(){global.rightKey=keyboard_key}","varType":4,},
+    {"$GMObjectProperty":"v2","%Name":"followPlayer","filters":[],"listItems":[],"multiselect":false,"name":"followPlayer","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"true","varType":3,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",

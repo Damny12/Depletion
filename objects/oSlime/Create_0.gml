@@ -5,6 +5,8 @@ defaultMoveSpd=2
 xspd=0
 yspd=0
 
+prevDir=0
+
 //ticking
 ticks=0
 
@@ -57,7 +59,7 @@ poisonDmg=1
 glideToggle=false
 glideGrav=defaultgrav/10
 glideTerminal=defaultTermVel/2
-glideSpeed=defaultMoveSpd
+glideSpeed=defaultMoveSpd*(1+Count(skillSet,"Glide")/8)
 glideSoftCapSpeed=0.02+defaultgrav
 
 //poison timing
