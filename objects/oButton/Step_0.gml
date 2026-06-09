@@ -3,11 +3,10 @@ if (hovering && mouse_check_button_pressed(mb_left)) {
 	func()
 }
 if (room==Levels && followPlayer){
-	x+=oSlime.xspd
-	y+=oSlime.yspd
+	x+=oCamera.xspd
+	y+=oCamera.yspd
 }
 
-if (keyboard_check(vk_escape)&&keyboard_check(vk_shift)) game_end(0)
 try {
 	if (waiter.done){
 		task()

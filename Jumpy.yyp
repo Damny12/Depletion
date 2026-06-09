@@ -56,6 +56,7 @@
     {"id":{"name":"oEnemy","path":"objects/oEnemy/oEnemy.yy",},},
     {"id":{"name":"oInitialiser","path":"objects/oInitialiser/oInitialiser.yy",},},
     {"id":{"name":"oLadder","path":"objects/oLadder/oLadder.yy",},},
+    {"id":{"name":"oMenu","path":"objects/oMenu/oMenu.yy",},},
     {"id":{"name":"oRedSlime","path":"objects/oRedSlime/oRedSlime.yy",},},
     {"id":{"name":"oRooms","path":"objects/oRooms/oRooms.yy",},},
     {"id":{"name":"oSeaPig","path":"objects/oSeaPig/oSeaPig.yy",},},

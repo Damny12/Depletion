@@ -27,6 +27,7 @@
     {"name":"oCorpse","order":1,"path":"objects/oCorpse/oCorpse.yy",},
     {"name":"oInitialiser","order":1,"path":"objects/oInitialiser/oInitialiser.yy",},
     {"name":"oLadder","order":4,"path":"objects/oLadder/oLadder.yy",},
+    {"name":"oMenu","order":6,"path":"objects/oMenu/oMenu.yy",},
     {"name":"oRedSlime","order":1,"path":"objects/oRedSlime/oRedSlime.yy",},
     {"name":"oRooms","order":2,"path":"objects/oRooms/oRooms.yy",},
     {"name":"oSeaPig","order":2,"path":"objects/oSeaPig/oSeaPig.yy",},
