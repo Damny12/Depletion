@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"deactivateBubbles",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"deactivateBubbles",
+  "parent":{
+    "name":"GUI",
+    "path":"folders/scripts/GUI.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

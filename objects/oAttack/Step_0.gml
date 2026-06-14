@@ -1,8 +1,8 @@
 if (!oMenu.paused){
    ticks++
     
-    x=oSlime.x
-    y=oSlime.y
+    x=oPlayer.x
+    y=oPlayer.y
     
     if (ticks>=lastingTick){
         instance_destroy(self)

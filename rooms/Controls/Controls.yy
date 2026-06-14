@@ -65,8 +65,8 @@
   ],
   "name":"Controls",
   "parent":{
-    "name":"GUI",
-    "path":"folders/rooms/GUI.yy",
+    "name":"Menus",
+    "path":"folders/rooms/GUI/Menus.yy",
   },
   "parentRoom":null,
   "physicsSettings":{

@@ -34,8 +34,11 @@
     {"$GMObjectProperty":"v2","%Name":"angerRange","filters":[],"listItems":[],"multiselect":false,"name":"angerRange","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"5","varType":0,},
     {"$GMObjectProperty":"v2","%Name":"damageMult","filters":[],"listItems":[],"multiselect":false,"name":"damageMult","rangeEnabled":true,"rangeMax":2.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"1","varType":0,},
     {"$GMObjectProperty":"v2","%Name":"xSpeedMult","filters":[],"listItems":[],"multiselect":false,"name":"xSpeedMult","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"1","varType":0,},
+    {"$GMObjectProperty":"v2","%Name":"healTicks","filters":[],"listItems":[],"multiselect":false,"name":"healTicks","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"1000","varType":1,},
+    {"$GMObjectProperty":"v2","%Name":"healAmount","filters":[],"listItems":[],"multiselect":false,"name":"healAmount","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0.0","varType":0,},
     {"$GMObjectProperty":"v2","%Name":"leftRightMovement","filters":[],"listItems":[],"multiselect":false,"name":"leftRightMovement","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"False","varType":3,},
     {"$GMObjectProperty":"v2","%Name":"getsAngry","filters":[],"listItems":[],"multiselect":false,"name":"getsAngry","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"False","varType":3,},
+    {"$GMObjectProperty":"v2","%Name":"devEnemy","filters":[],"listItems":[],"multiselect":false,"name":"devEnemy","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"False","varType":3,},
     {"$GMObjectProperty":"v2","%Name":"angerSprite","filters":[
         "GMSprite",
       ],"listItems":[],"multiselect":false,"name":"angerSprite","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"","varType":5,},

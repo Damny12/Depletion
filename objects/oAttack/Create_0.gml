@@ -1,2 +1,2 @@
-lastingTick=oSlime.attackLength
+lastingTick=oPlayer.attackLength
 ticks=0

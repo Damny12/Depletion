@@ -10,6 +10,10 @@ cards=[{
 	title:"Strength",
 	asset:strength,
 	cost:5
+},{
+	title:"Knockback",
+	asset:knockback,
+	cost:3
 }]
 
 //first card

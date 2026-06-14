@@ -18,3 +18,7 @@ angerMult=1.5
 iframes=0
 secondsOfInvincibility=0.7
 poisonedDuration=-1
+
+//tickers
+healTick=0
+knockBackTick=0

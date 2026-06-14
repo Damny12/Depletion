@@ -3,8 +3,8 @@ if (!oMenu.paused){
     y+=yspd
     
     //relative to charecter
-    var _refrencex=oSlime.x-x
-    var _refrencey=oSlime.y-y
+    var _refrencex=oPlayer.x-x
+    var _refrencey=oPlayer.y-y
     
     if (_refrencex>=320-thresholdX) {
     	xspd+=1

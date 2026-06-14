@@ -8,8 +8,8 @@
   "name":"oText",
   "overriddenProperties":[],
   "parent":{
-    "name":"buttons",
-    "path":"folders/objects/GUI/buttons.yy",
+    "name":"GUI",
+    "path":"folders/objects/GUI.yy",
   },
   "parentObjectId":null,
   "persistent":false,
