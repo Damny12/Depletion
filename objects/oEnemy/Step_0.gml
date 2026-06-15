@@ -76,7 +76,8 @@ if (!oMenu.paused){
             movDir*=-1
         }
         knockBackTick= -20
-        oPlayer.xspd+=sign(oAttack.image_xscale)*oPlayer.moveSpd
+        oPlayer.xspd-=sign(oAttack.image_xscale)*oPlayer.xTermvel*oPlayer.knockbackMult
+        oPlayer.knockbackTick=knockBackTick
     }
     
     //posion

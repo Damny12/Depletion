@@ -32,7 +32,13 @@ if (!oMenu.paused){
     moveDir=right_key-left_key
     
     //xspd
-    xspd=moveDir*moveSpd
+    xspd+=moveDir*moveSpd
+    
+    if (abs(xspd)>=xTermvel){
+        xspd=xTermvel*moveDir
+    }
+    
+    xspd/=xFriction
     
     //collison
     var _subpixel = 0.5
@@ -142,6 +148,14 @@ if (!oMenu.paused){
     }else{
     	moveSpd=defaultMoveSpd
     	termvel=defaultTermVel
+    }
+    
+    if (knockbackTicks>=0){
+        xTermvel=defaultXTermvel
+        moveSpd=defaultMoveSpd
+    }else{
+        xTermvel=10
+        moveSpd=knockbackMoveSpd
     }
     
     //sprite changing
@@ -262,4 +276,5 @@ if (!oMenu.paused){
     	}
     }
     change()
+    knockbackTicks++
 }

@@ -1,14 +1,20 @@
 // moving
 moveDir=0
-moveSpd=2
-defaultMoveSpd=2
+moveSpd=0.4
+defaultMoveSpd=0.4
+
 xspd=0
 yspd=0
+
+defaultXTermvel=3
+xFriction=1.1
+xTermvel=3
 
 prevDir=0
 
 //ticking
 ticks=0
+knockbackTicks=0
 
 //jumping
 defaultgrav=0.275
@@ -41,6 +47,8 @@ attackDebounce=0
 attackLength=20
 attackObject=noone
 attackWeapon=oAttack
+
+knockbackMoveSpd=0
 
 //coins
 coinFrame=0

@@ -13,8 +13,8 @@
   ],
   "name":"ParticleSystemHitRight",
   "parent":{
-    "name":"Jumpy",
-    "path":"Jumpy.yyp",
+    "name":"Depletion",
+    "path":"Depletion.yyp",
   },
   "resourceType":"GMParticleSystem",
   "resourceVersion":"2.0",
