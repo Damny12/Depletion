@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"setLeftButton",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"setLeftButton",
+  "parent":{
+    "name":"GUI",
+    "path":"folders/scripts/GUI.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

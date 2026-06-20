@@ -1,6 +1,7 @@
 window_enable_borderless_fullscreen(true)
 
 //globals
+global.floorLevel=0
 global.drainMult=1
 global.coinOxygenConversion=1
 global.finalCoins=0
@@ -30,7 +31,11 @@ global.originalWindowPositionY=window_get_y()
 global.enemyHp=0
 global.enemies=[
     oRedSlime,
-    oSeaPig
+    oSeaPig,
+	oSeaHorse
+]
+global.projectiles=[
+	oBabySeaHorse
 ]
 
 //keybinds

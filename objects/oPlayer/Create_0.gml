@@ -57,6 +57,7 @@ coinCount=0
 coins=0
 secondDelay=1
 lastCollect=false
+totalCoins=0
 
 //skills
 skillSet=global.skills

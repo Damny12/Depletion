@@ -1,0 +1,3 @@
+function ReturnSelf(){
+	return self
+}

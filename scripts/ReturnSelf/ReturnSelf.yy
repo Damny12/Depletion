@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"ReturnSelf",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"ReturnSelf",
+  "parent":{
+    "name":"utility",
+    "path":"folders/scripts/utility.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

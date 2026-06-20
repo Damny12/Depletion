@@ -21,7 +21,8 @@ if (!oMenu.paused){
     var _bouncers=[oCorpse]
     var _killers=layer_tilemap_get_id("Die")
     var _enemies=global.enemies
-    
+    var _projectiles=global.projectiles
+	
     //update
     global.drainMult=drainMult
     ticks++
@@ -41,13 +42,13 @@ if (!oMenu.paused){
     xspd/=xFriction
     
     //collison
-    var _subpixel = 0.5
+    var _subpixel = 0.25
     
     if (place_meeting(x+xspd,y,_ground)){
     	var _pixelCheck= _subpixel*sign(xspd)
     	
     	while(!place_meeting(x+xspd,y,_ground)){
-    		x+=_pixelCheck
+    		x-=_pixelCheck
     	}
     	
     	xspd=0
@@ -55,7 +56,7 @@ if (!oMenu.paused){
     
     //damaging
     for (var i=0;i<array_length(_enemies);i++){
-    	if (place_meeting(x,y,_enemies[i]) and iframes<=0){
+    	if (place_meeting(x,y,_enemies[i]) and iframes<=0 and _enemies[i].damageMult>0){
             source="Enemy"
             oOxygenBar.loss=true
     		oxygen-=enemyDrain*drainMult*_enemies[i].damageMult
@@ -68,6 +69,18 @@ if (!oMenu.paused){
     				yspd=6*sign(yspd)
     			}
     		}
+    		glideToggle=false
+    	}
+    }
+	
+	for (var i=0;i<array_length(_projectiles);i++){
+    	if (place_meeting(x,y,_projectiles[i]) and iframes<=0){
+            source="Enemy"
+            oOxygenBar.loss=true
+    		oxygen-=enemyDrain*drainMult*_projectiles[i].damageMult
+    		iframes=25
+			xspd+=1
+    		xspd*=-1
     		glideToggle=false
     	}
     }
@@ -116,7 +129,7 @@ if (!oMenu.paused){
     	var _pixelCheck= _subpixel*sign(yspd)
     	
     	while(!place_meeting(x,y + yspd,_ground)){
-    		y+=_pixelCheck*sign(grav)
+    		y-=_pixelCheck*sign(grav)
     	}
     	
     	yspd=0
@@ -199,6 +212,7 @@ if (!oMenu.paused){
     oxygen-=movementDrain*xspd*moveDir*drainMult
     
     if (oxygen<=0){
+		global.finalCoins-=totalCoins
     	room_restart()
     }
     
@@ -261,6 +275,7 @@ if (!oMenu.paused){
     	if (coinFrame==round(secondDelay*30/coinCount) and !coins<=0){
     		coins-=1
     		global.finalCoins+=1
+			totalCoins+=1
     	}
     	
     	if (coinFrame>=round(secondDelay*60/coinCount) and !coins<=0){

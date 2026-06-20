@@ -26,3 +26,7 @@ if (ticks%4==0 and oPlayer.source=="Jump" and !global.deactivateBubbles){
 if (ticks<=0){
     loss=false
 }
+
+if (global.devMode){
+	draw_text_transformed(40,40,global.floorLevel,3,3,0)
+}

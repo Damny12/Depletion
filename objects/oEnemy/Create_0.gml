@@ -6,12 +6,14 @@ defaultMoveSpeed=0.2
 movDir=1
 movespeed=defaultMoveSpeed*movDir
 
+//wandering
+wanderSpeed=1
+
 xspd=0
 termVel=4
 xFriction=1.1
 
 //angry
-range=angerRange
 angerMult=1.5
 
 //damaging
@@ -22,3 +24,5 @@ poisonedDuration=-1
 //tickers
 healTick=0
 knockBackTick=0
+wanderTick=0
+shootDelayTick=0
