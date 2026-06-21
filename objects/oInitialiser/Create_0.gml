@@ -2,6 +2,7 @@ window_enable_borderless_fullscreen(true)
 
 //globals
 global.floorLevel=0
+global.weapon=oAttack
 global.drainMult=1
 global.coinOxygenConversion=1
 global.finalCoins=0
@@ -11,7 +12,10 @@ global.skillDescriptions={
     "Poison":"Deals damage over time.\nEvery purchase of this upgrade\nmakes the enemy take\nanother tick of damage.",
     "Strength":"Makes your weapon do\nmore damage per hit. Every\npurchase you do 1\nmore damage per hit.",
     "Glide":"Makes you able to\nGlide when reaching a certain\nspeed. Every purchase makes\ngliding faster and lower\ngravity.",
-    "Knockback":"Increases the amount\nyou push enemies back\nby. Every purchase makes\nyou knock them back by\n25% more."
+    "Knockback":"Increases the amount\nyou push enemies back\nby. Every purchase makes\nyou knock them back by\n25% more.",
+	"Bow":"Replaces your current weapon\nwith a bow that\nshoots in the direction\nof your mouse\nand goes through enemies.",
+	"Breathing":"Reduces the amount\nof oxygen that\nyou use.",
+	"Sword":"Replaces your current weapon\nwith a sword that\ncan attack and push\nenemies back."
 }
 global.modifiers=[]
 global.modifierDescription={
@@ -30,12 +34,15 @@ global.originalWindowPositionY=window_get_y()
 //enemies
 global.enemyHp=0
 global.enemies=[
-    oRedSlime,
+    oCrab,
     oSeaPig,
-	oSeaHorse
+	oSeaHorse,
+	oCrabClaw
 ]
 global.projectiles=[
-	oBabySeaHorse
+	oBabySeaHorse,
+	oBabySeaHorseExplodee,
+	oBabySeaHorseExplosion
 ]
 
 //keybinds
@@ -45,7 +52,8 @@ global.spaceKey="W"
 global.attackKey="E"
 
 if (room==StartUp){
-    global.devMode=true
+	global.tutorial=true
+    global.devMode=false
     global.deactivateBubbles=false
     global.deactivateCoins=false
     global.vsync=true

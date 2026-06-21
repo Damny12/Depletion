@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":0,
   "parent":{
-    "name":"GUI",
-    "path":"folders/graphics/GUI.yy",
+    "name":"tutorial",
+    "path":"folders/graphics/GUI/tutorial.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

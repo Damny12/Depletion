@@ -5,6 +5,7 @@ hp=global.enemyHp+defaultHp
 defaultMoveSpeed=0.2
 movDir=1
 movespeed=defaultMoveSpeed*movDir
+yspd=0
 
 //wandering
 wanderSpeed=1

@@ -1,4 +1,8 @@
 if (!oMenu.paused){
+	if (global.floorLevel mod 10 == 0 and room!=BossRoom and global.floorLevel> 0 and global.devMode==true){
+		room_goto(BossRoom)
+	}
+	
     //inputs
     var right_key = keyboard_check(vk_right)||keyboard_check(ord(global.rightKey))
     var left_key = keyboard_check(vk_left)||keyboard_check(ord(global.leftKey))
@@ -88,10 +92,6 @@ if (!oMenu.paused){
     //Movement
     
     //Y movement
-    
-    //move
-    y+=yspd
-    x+=xspd
     
     //gravity
     yspd+=grav
@@ -205,7 +205,12 @@ if (!oMenu.paused){
     }
     
     //die
-    if (place_meeting(x,y,_killers)) oxygen-=naturalDrain*10*drainMult
+    if (place_meeting(x,y,_killers)){
+		oxygen-=naturalDrain*10*drainMult
+		lavaTick=60
+	}else{
+		lavaTick=1
+	}
     
     //oxygen
     oxygen-=naturalDrain*drainMult
@@ -227,6 +232,10 @@ if (!oMenu.paused){
     	attackDebounce=attackCooldown+attackLength
     }
     
+	//move
+    y+=yspd
+    x+=xspd
+	
     //coins
     if (place_meeting(x,y,oLadder) and lastCollect==false){
         if (room==Tutorial){
@@ -256,9 +265,15 @@ if (!oMenu.paused){
         global.coinOxygenConversion+=drainIncrease
     }
     
-    if (ticks mod 120==0 and !global.deactivateBubbles){
+	bubbleTick=120/lavaTick
+	
+    if (ticks mod bubbleTick==0 and !global.deactivateBubbles){
         instance_create_layer(x,y,"PlayerStuff",oBubble)
     }
+	
+	if (lavaTick>1){
+		oOxygenBar.loss=true
+	}
     
     //coin
     if (makingCoins){

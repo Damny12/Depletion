@@ -16,10 +16,12 @@
     {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oEnemy","path":"objects/oEnemy/oEnemy.yy",},"propertyId":{"name":"projectileObject","path":"objects/oEnemy/oEnemy.yy",},"resource":{"name":"oBabySeaHorse","path":"objects/oBabySeaHorse/oBabySeaHorse.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"oBabySeaHorse",},
     {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oEnemy","path":"objects/oEnemy/oEnemy.yy",},"propertyId":{"name":"projectileDelay","path":"objects/oEnemy/oEnemy.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"10",},
     {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oEnemy","path":"objects/oEnemy/oEnemy.yy",},"propertyId":{"name":"reward","path":"objects/oEnemy/oEnemy.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"3",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oEnemy","path":"objects/oEnemy/oEnemy.yy",},"propertyId":{"name":"corpse","path":"objects/oEnemy/oEnemy.yy",},"resource":{"name":"oBabySeaHorseExplosion","path":"objects/oBabySeaHorseExplosion/oBabySeaHorseExplosion.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"oBabySeaHorseExplosion",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oEnemy","path":"objects/oEnemy/oEnemy.yy",},"propertyId":{"name":"corpseSprite","path":"objects/oEnemy/oEnemy.yy",},"resource":{"name":"sSeaHorseBaby","path":"sprites/sSeaHorseBaby/sSeaHorseBaby.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"sSeaHorseBaby",},
   ],
   "parent":{
-    "name":"enemies",
-    "path":"folders/objects/enemies.yy",
+    "name":"normal_enemies",
+    "path":"folders/objects/enemies/normal_enemies.yy",
   },
   "parentObjectId":{
     "name":"oEnemy",

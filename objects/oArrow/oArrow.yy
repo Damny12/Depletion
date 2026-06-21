@@ -8,8 +8,9 @@
     {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oProjectile","path":"objects/oProjectile/oProjectile.yy",},"propertyId":{"name":"minAngle","path":"objects/oProjectile/oProjectile.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"0",},
     {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oProjectile","path":"objects/oProjectile/oProjectile.yy",},"propertyId":{"name":"maxAngle","path":"objects/oProjectile/oProjectile.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"10",},
     {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oProjectile","path":"objects/oProjectile/oProjectile.yy",},"propertyId":{"name":"gravityForce","path":"objects/oProjectile/oProjectile.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"0.2",},
-    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oProjectile","path":"objects/oProjectile/oProjectile.yy",},"propertyId":{"name":"speedForce","path":"objects/oProjectile/oProjectile.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"6",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oProjectile","path":"objects/oProjectile/oProjectile.yy",},"propertyId":{"name":"speedForce","path":"objects/oProjectile/oProjectile.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"7",},
     {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oProjectile","path":"objects/oProjectile/oProjectile.yy",},"propertyId":{"name":"tipHeavy","path":"objects/oProjectile/oProjectile.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"True",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oProjectile","path":"objects/oProjectile/oProjectile.yy",},"propertyId":{"name":"startLookingAtMouse","path":"objects/oProjectile/oProjectile.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"True",},
   ],
   "parent":{
     "name":"projectiles",

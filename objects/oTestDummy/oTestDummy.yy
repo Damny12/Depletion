@@ -22,8 +22,8 @@
     {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oEnemy","path":"objects/oEnemy/oEnemy.yy",},"propertyId":{"name":"healTicks","path":"objects/oEnemy/oEnemy.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"500",},
   ],
   "parent":{
-    "name":"enemies",
-    "path":"folders/objects/enemies.yy",
+    "name":"normal_enemies",
+    "path":"folders/objects/enemies/normal_enemies.yy",
   },
   "parentObjectId":{
     "name":"oEnemy",

@@ -4,6 +4,20 @@ if (devEnemy and !global.devMode){
 
 if (!oMenu.paused){ 
 	
+	yspd+=1
+	
+	if (place_meeting(x,y+yspd,layer_tilemap_get_id("Ground"))){
+		yspd=0
+		
+		while (place_meeting(x,y,layer_tilemap_get_id("Ground"))){
+			y-=0.5
+		}
+		
+		while (place_meeting(x,y,layer_tilemap_get_id("Ground"))){
+			y+=0.25
+		}
+	}
+	
 	function seeObject(object){
 		for (var i=1;i<sightRange;i+=1) {
 			if (place_meeting(x+i*32*movDir,y,object)){
@@ -68,31 +82,32 @@ if (!oMenu.paused){
 	        if (oPlayer.poisonDmg>0){
 	            poisonedDuration=60
 	        }
-	        var hitPartSysLeft=part_system_create(ParticleSystemHitLeft)
-	        var hitPartSysRight=part_system_create(ParticleSystemHitRight)
-	        
-	        if (sign(_attackWeapon[i].image_xscale)<0){
-	            part_system_position(hitPartSysRight,x,y)
-	        }
-	        
-	        if (sign(_attackWeapon[i].image_xscale)>0){
-	            part_system_position(hitPartSysLeft,x,y)
-	        }
-	        
-	        xspd=sign(_attackWeapon[i].image_xscale)*termVel*oPlayer.knockbackMult
-	        if(place_meeting(x+xspd,y,layer_tilemap_get_id("Ground")) /*Did i hit a wall?*/ or !place_meeting(x+xspd,y+32,layer_tilemap_get_id("Ground")) /*Is there ground infront of me?*/) {
-	            x-=movespeed*movDir*xspd
-	            xspd=0
-	            movDir*=-1
-	        }
 			
 			if (_attackWeapon[i].knockBackEnemy){
+				xspd=sign(_attackWeapon[i].image_xscale)*termVel*oPlayer.knockbackMult
+		        if(place_meeting(x+xspd,y,layer_tilemap_get_id("Ground")) /*Did i hit a wall?*/ or !place_meeting(x+xspd,y+32,layer_tilemap_get_id("Ground")) /*Is there ground infront of me?*/) {
+		            x-=movespeed*movDir*xspd
+		            xspd=0
+		            movDir*=-1
+		        }
+				
+				var hitPartSysLeft=part_system_create(ParticleSystemHitLeft)
+		        var hitPartSysRight=part_system_create(ParticleSystemHitRight)
+		        
+		        if (sign(_attackWeapon[i].image_xscale)<0){
+		            part_system_position(hitPartSysRight,x,y)
+		        }
+		        
+		        if (sign(_attackWeapon[i].image_xscale)>0){
+		            part_system_position(hitPartSysLeft,x,y)
+		        }
+				
 				knockBackTick= -20
 			}
 			
 			if (_attackWeapon[i].knockBackPlayer){
 				oPlayer.xspd-=sign(_attackWeapon[i].image_xscale)*oPlayer.xTermvel*oPlayer.knockbackMult
-	        	oPlayer.knockbackTick=knockBackTick
+	        	oPlayer.knockbackTick=-20
 			}
 	    }
 	}
@@ -190,5 +205,6 @@ if (!oMenu.paused){
 		} 
 	}
     
+	y+=yspd
     xspd/=xFriction
 }

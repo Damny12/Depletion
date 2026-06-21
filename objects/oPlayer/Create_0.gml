@@ -32,13 +32,14 @@ naturalDrain=0.003
 movementDrain=0.001
 enemyDrain=0.1
 maxOxygen=10
-drainMult=1
+drainMult=1/root(Count(global.skills,"Breathing")+1,4)
 
 damageSource=""
 drainIncrease=Count(global.modifiers,GrowingPressure)*0.04
 
 //enemy stuff
 iframes=0
+lavaTick=1
 
 //attacking
 attackCooldown=30
@@ -46,7 +47,7 @@ attackDmg=1
 attackDebounce=0
 attackLength=20
 attackObject=noone
-attackWeapon=oAttack
+attackWeapon=global.weapon
 
 knockbackMoveSpd=0
 
@@ -87,6 +88,19 @@ if (Count(skillSet,"Poison")==0){
 	poisonDmg=1
 }
 
+//set weapon
+if (Count(skillSet,"Bow")==1){
+	array_delete(skillSet,array_get_index(skillSet,"Bow"),1)
+	global.weapon=oArrow
+	attackWeapon=global.weapon
+}
+
+if (Count(skillSet,"Sword")==1){
+	array_delete(skillSet,array_get_index(skillSet,"Sword"),1)
+	global.weapon=oAttack
+	attackWeapon=global.weapon
+}
+
 
 //currency
 global.finalOxygen=floor(oxygen)
@@ -100,3 +114,11 @@ for (var i =0;i<array_length(global.modifiers);i++){
 }
 
 instance_create_layer(x,y+160,"PlayerStuff",oOxygenBar)
+
+global.tutorial=false
+
+//set weapon stats
+if (global.weapon==oArrow){
+	attackLength=0
+	attackCooldown=40
+}
