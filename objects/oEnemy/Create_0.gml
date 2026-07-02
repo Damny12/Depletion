@@ -5,17 +5,13 @@ hp=global.enemyHp+defaultHp
 defaultMoveSpeed=0.2
 movDir=1
 movespeed=defaultMoveSpeed*movDir
-yspd=0
+termVel=defaultTermVel
 
 //wandering
 wanderSpeed=1
 
 xspd=0
-termVel=4
 xFriction=1.1
-
-//angry
-angerMult=1.5
 
 //damaging
 iframes=0
@@ -27,3 +23,7 @@ healTick=0
 knockBackTick=0
 wanderTick=0
 shootDelayTick=0
+
+while (place_meeting(x,y,layer_tilemap_get_id("Ground"))) {
+	x++
+}

@@ -1,5 +1,5 @@
 // moving
-moveDir=0
+moveDir=1
 moveSpd=0.4
 defaultMoveSpd=0.4
 
@@ -34,7 +34,7 @@ enemyDrain=0.1
 maxOxygen=10
 drainMult=1/root(Count(global.skills,"Breathing")+1,4)
 
-damageSource=""
+source=""
 drainIncrease=Count(global.modifiers,GrowingPressure)*0.04
 
 //enemy stuff
@@ -61,10 +61,9 @@ lastCollect=false
 totalCoins=0
 
 //skills
-skillSet=global.skills
-attackDmg=1+Count(skillSet,"Strength")
+attackDmg=1+Count(global.skills,"Strength")
 
-knockbackMult=1+Count(skillSet,"Knockback")/4
+knockbackMult=1+sqrt(Count(global.skills,"Knockback"))/4
 
 //poison
 poisonTicks=[]
@@ -74,31 +73,49 @@ poisonDmg=1
 glideToggle=false
 glideGrav=defaultgrav/10
 glideTerminal=defaultTermVel/2
-glideSpeed=defaultMoveSpd*(1+Count(skillSet,"Glide")/8)
+glideSpeed=defaultMoveSpd*(1+Count(global.skills,"Glide")/8)
 glideSoftCapSpeed=0.02+defaultgrav
 
 //poison timing
-for(var i=0;i<Count(skillSet,"Poison");i++){
-	array_push(poisonTicks,60*(round(i/Count(skillSet,"Poison")*10))/10)
+for(var i=0;i<Count(global.skills,"Poison");i++){
+	array_push(poisonTicks,60*(round(i/Count(global.skills,"Poison")*10))/10)
 }
 
-if (Count(skillSet,"Poison")==0){
+if (Count(global.skills,"Poison")==0){
 	poisonDmg=0
 }else{
 	poisonDmg=1
 }
 
 //set weapon
-if (Count(skillSet,"Bow")==1){
-	array_delete(skillSet,array_get_index(skillSet,"Bow"),1)
+if (Count(global.skills,"Bow")==1){
+	array_delete(global.skills,array_get_index(global.skills,"Bow"),1)
 	global.weapon=oArrow
 	attackWeapon=global.weapon
 }
 
-if (Count(skillSet,"Sword")==1){
-	array_delete(skillSet,array_get_index(skillSet,"Sword"),1)
+if (Count(global.skills,"Sword")==1){
+	array_delete(global.skills,array_get_index(global.skills,"Sword"),1)
 	global.weapon=oAttack
 	attackWeapon=global.weapon
+}
+
+if (Count(global.skills,"Hammer")==1){ 
+	array_delete(global.skills,array_get_index(global.skills,"Sword"),1)
+	global.weapon=oHammer
+	attackWeapon=global.weapon
+}
+
+if (global.weapon == oHammer){
+	attackDmg*=2
+	hammerOxygen=[]
+	
+	var fractionEquation = 11+Count(global.skills,"Breathing") //want to be able to attack 10 times, so make the number 11
+	var _hammerOxygenIncrement=maxOxygen/(fractionEquation)
+	
+	for (var i=0;i<fractionEquation;i++){
+		array_push(hammerOxygen,(i+1)*_hammerOxygenIncrement)
+	}
 }
 
 
@@ -119,6 +136,10 @@ global.tutorial=false
 
 //set weapon stats
 if (global.weapon==oArrow){
-	attackLength=0
+	attackLength=-Count(global.skills,"Reload")*2
 	attackCooldown=40
+}
+
+if (global.devMode){
+	global.finalCoins=99
 }

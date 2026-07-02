@@ -10,8 +10,8 @@
   "name":"oCoin",
   "overriddenProperties":[],
   "parent":{
-    "name":"objects",
-    "path":"folders/objects.yy",
+    "name":"player",
+    "path":"folders/objects/player.yy",
   },
   "parentObjectId":null,
   "persistent":false,

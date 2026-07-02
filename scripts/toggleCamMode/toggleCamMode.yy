@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"toggleCamMode",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"toggleCamMode",
+  "parent":{
+    "name":"checkmarks",
+    "path":"folders/scripts/GUI/checkmarks.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

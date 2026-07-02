@@ -16,14 +16,28 @@ if (!oMenu.paused){
 		image_angle+=speed
 	}
 	
-	if (place_meeting(x,y,hitObject) and destroyOnHitObject){
-		if (explodesOnDestroy){
-			repeat (explodeCount) {
-				instance_create_layer(x,y,"PlayerStuff",explodeInto)
+	if (is_array(hitObject)){
+		for (var i = 0;i<array_length(hitObject);i++){
+			if (place_meeting(x,y,hitObject[i]) and destroyOnHitObject){
+				if (explodesOnDestroy){
+					repeat (explodeCount) {
+						instance_create_layer(x,y,"PlayerStuff",explodeInto)
+					}
+				}
+				
+				instance_destroy()
 			}
 		}
-		
-		instance_destroy()
+	}else{
+		if (place_meeting(x,y,hitObject) and destroyOnHitObject){
+			if (explodesOnDestroy){
+				repeat (explodeCount) {
+					instance_create_layer(x,y,"PlayerStuff",explodeInto)
+				}
+			}
+			
+			instance_destroy()
+		}
 	}
 	
 }else{
@@ -35,5 +49,5 @@ if (!oMenu.paused and prev){
 	speed=originalSpeed
 	gravity=originalSpeed 
 }
-	
+
 prev=oMenu.paused

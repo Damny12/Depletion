@@ -32,11 +32,12 @@
     {"$GMObjectProperty":"v2","%Name":"gravityForce","filters":[],"listItems":[],"multiselect":false,"name":"gravityForce","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0.0","varType":0,},
     {"$GMObjectProperty":"v2","%Name":"speedForce","filters":[],"listItems":[],"multiselect":false,"name":"speedForce","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0.0","varType":0,},
     {"$GMObjectProperty":"v2","%Name":"damageMult","filters":[],"listItems":[],"multiselect":false,"name":"damageMult","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0.0","varType":0,},
+    {"$GMObjectProperty":"v2","%Name":"knockBackMult","filters":[],"listItems":[],"multiselect":false,"name":"knockBackMult","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"1.0","varType":0,},
     {"$GMObjectProperty":"v2","%Name":"startDir","filters":[],"listItems":[],"multiselect":false,"name":"startDir","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"45","varType":0,},
     {"$GMObjectProperty":"v2","%Name":"explodeCount","filters":[],"listItems":[],"multiselect":false,"name":"explodeCount","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":1,},
     {"$GMObjectProperty":"v2","%Name":"hitObject","filters":[
         "GMObject",
-      ],"listItems":[],"multiselect":false,"name":"hitObject","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"layer_tilemap_get_id(\"Ground\")","varType":5,},
+      ],"listItems":[],"multiselect":false,"name":"hitObject","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"layer_tilemap_get_id(\"ground\")","varType":5,},
     {"$GMObjectProperty":"v2","%Name":"objectSource","filters":[
         "GMObject",
       ],"listItems":[],"multiselect":false,"name":"objectSource","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resource":{"name":"oPlayer","path":"objects/oPlayer/oPlayer.yy",},"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"oPlayer","varType":5,},

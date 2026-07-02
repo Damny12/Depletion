@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"setUpButton",
   "parent":{
-    "name":"GUI",
-    "path":"folders/scripts/GUI.yy",
+    "name":"buttons",
+    "path":"folders/scripts/GUI/buttons.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

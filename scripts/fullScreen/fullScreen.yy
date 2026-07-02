@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"fullScreen",
   "parent":{
-    "name":"GUI",
-    "path":"folders/scripts/GUI.yy",
+    "name":"checkmarks",
+    "path":"folders/scripts/GUI/checkmarks.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

@@ -9,8 +9,8 @@
   "name":"oAttack",
   "overriddenProperties":[],
   "parent":{
-    "name":"objects",
-    "path":"folders/objects.yy",
+    "name":"weapons",
+    "path":"folders/objects/weapons.yy",
   },
   "parentObjectId":null,
   "persistent":false,

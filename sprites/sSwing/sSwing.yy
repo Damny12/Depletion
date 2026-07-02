@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":6,
   "parent":{
-    "name":"slime",
-    "path":"folders/graphics/slime.yy",
+    "name":"player",
+    "path":"folders/graphics/player.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

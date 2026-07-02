@@ -24,15 +24,15 @@
   "name":"sSlide",
   "nineSlice":{
     "$GMNineSliceData":"",
-    "bottom":1,
+    "bottom":2,
     "enabled":true,
     "guideColour":[4294902015,4294902015,4294902015,4294902015,],
     "highlightColour":1728023040,
     "highlightStyle":0,
-    "left":5,
+    "left":6,
     "resourceType":"GMNineSliceData",
     "resourceVersion":"2.0",
-    "right":5,
+    "right":6,
     "tileMode":[
       0,
       0,
@@ -40,7 +40,7 @@
       0,
       0,
     ],
-    "top":1,
+    "top":2,
   },
   "origin":4,
   "parent":{

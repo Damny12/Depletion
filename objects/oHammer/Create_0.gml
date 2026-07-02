@@ -1,0 +1,2 @@
+lastingTick=oPlayer.attackLength
+ticks=0

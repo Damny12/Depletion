@@ -1,0 +1,12 @@
+{
+  "$GMShader":"",
+  "%Name":"solidShader",
+  "name":"solidShader",
+  "parent":{
+    "name":"Depletion",
+    "path":"Depletion.yyp",
+  },
+  "resourceType":"GMShader",
+  "resourceVersion":"2.0",
+  "type":1,
+}

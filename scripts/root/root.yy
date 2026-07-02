@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"root",
   "parent":{
-    "name":"GUI",
-    "path":"folders/scripts/GUI.yy",
+    "name":"utility",
+    "path":"folders/scripts/utility.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

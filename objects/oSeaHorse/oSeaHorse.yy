@@ -1,7 +1,11 @@
 {
   "$GMObject":"",
   "%Name":"oSeaHorse",
-  "eventList":[],
+  "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
   "managed":true,
   "name":"oSeaHorse",
   "overriddenProperties":[
@@ -18,6 +22,7 @@
     {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oEnemy","path":"objects/oEnemy/oEnemy.yy",},"propertyId":{"name":"reward","path":"objects/oEnemy/oEnemy.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"3",},
     {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oEnemy","path":"objects/oEnemy/oEnemy.yy",},"propertyId":{"name":"corpse","path":"objects/oEnemy/oEnemy.yy",},"resource":{"name":"oBabySeaHorseExplosion","path":"objects/oBabySeaHorseExplosion/oBabySeaHorseExplosion.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"oBabySeaHorseExplosion",},
     {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oEnemy","path":"objects/oEnemy/oEnemy.yy",},"propertyId":{"name":"corpseSprite","path":"objects/oEnemy/oEnemy.yy",},"resource":{"name":"sSeaHorseBaby","path":"sprites/sSeaHorseBaby/sSeaHorseBaby.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"sSeaHorseBaby",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oEnemy","path":"objects/oEnemy/oEnemy.yy",},"propertyId":{"name":"textDisplayOffset","path":"objects/oEnemy/oEnemy.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"50",},
   ],
   "parent":{
     "name":"normal_enemies",

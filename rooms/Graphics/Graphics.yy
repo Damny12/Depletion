@@ -15,6 +15,8 @@
     {"name":"inst_7B30B213","path":"rooms/Graphics/Graphics.yy",},
     {"name":"inst_797E6540","path":"rooms/Graphics/Graphics.yy",},
     {"name":"inst_578A3EE8","path":"rooms/Graphics/Graphics.yy",},
+    {"name":"inst_70B21E53","path":"rooms/Graphics/Graphics.yy",},
+    {"name":"inst_1518020","path":"rooms/Graphics/Graphics.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -59,6 +61,15 @@
             {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oText","path":"objects/oText/oText.yy",},"propertyId":{"name":"button_text","path":"objects/oText/oText.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"\"Disable Coins\"",},
             {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oText","path":"objects/oText/oText.yy",},"propertyId":{"name":"font_size","path":"objects/oText/oText.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"3",},
           ],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":3.0920358,"scaleY":3.092036,"x":800.0,"y":640.0,},
+        {"$GMRInstance":"v4","%Name":"inst_70B21E53","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_70B21E53","objectId":{"name":"oCheckBox","path":"objects/oCheckBox/oCheckBox.yy",},"previewSprite":{"name":"sUnchecked","path":"sprites/sUnchecked/sUnchecked.yy",},"properties":[
+            {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oCheckBox","path":"objects/oCheckBox/oCheckBox.yy",},"propertyId":{"name":"button_text","path":"objects/oCheckBox/oCheckBox.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"\"\"",},
+            {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oCheckBox","path":"objects/oCheckBox/oCheckBox.yy",},"propertyId":{"name":"check","path":"objects/oCheckBox/oCheckBox.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"global.newCameraMode",},
+            {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oCheckBox","path":"objects/oCheckBox/oCheckBox.yy",},"propertyId":{"name":"func","path":"objects/oCheckBox/oCheckBox.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"toggleCamMode",},
+          ],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":9.276107,"scaleY":9.276108,"x":1056.0,"y":384.0,},
+        {"$GMRInstance":"v4","%Name":"inst_1518020","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_1518020","objectId":{"name":"oText","path":"objects/oText/oText.yy",},"properties":[
+            {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oText","path":"objects/oText/oText.yy",},"propertyId":{"name":"button_text","path":"objects/oText/oText.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"\"New Camera\"",},
+            {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oText","path":"objects/oText/oText.yy",},"propertyId":{"name":"font_size","path":"objects/oText/oText.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"3",},
+          ],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":3.0920358,"scaleY":3.092036,"x":800.0,"y":384.0,},
       ],"layers":[],"name":"Instances","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRBackgroundLayer":"","%Name":"Background","animationFPS":15.0,"animationSpeedType":0,"colour":4278190080,"depth":100,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"hspeed":0.0,"htiled":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Background","properties":[],"resourceType":"GMRBackgroundLayer","resourceVersion":"2.0","spriteId":null,"stretch":false,"userdefinedAnimFPS":false,"userdefinedDepth":false,"visible":true,"vspeed":0.0,"vtiled":false,"x":0,"y":0,},
   ],

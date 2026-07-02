@@ -12,6 +12,11 @@ _nine=sprite_get_nineslice(sOxygenBar)
 _nine.enabled=true
 
 draw_sprite_ext(sOxygenBar,0,view_wport[0]/8,view_hport[0]*2-32,4,-20,0,c_white,1)
+if (global.weapon == oHammer){
+	for (var i = 0;i<array_length(oPlayer.hammerOxygen);i++){
+		draw_sprite_ext(sOxygenBar,0,view_wport[0]/8,view_hport[0]*2-32,4,-2*oPlayer.hammerOxygen[i],0,c_white,1)
+	}
+}
 
 ticks--
 
@@ -27,6 +32,4 @@ if (ticks<=0){
     loss=false
 }
 
-if (global.devMode){
-	draw_text_transformed(40,40,global.floorLevel,3,3,0)
-}
+draw_text_transformed(40,40,global.floorLevel,3,3,0)

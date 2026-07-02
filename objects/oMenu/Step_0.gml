@@ -3,32 +3,53 @@ if (keyboard_check_pressed(vk_escape)){
     
     if (paused){
         keyboard_string=""
-		
-        quitToMenu=instance_create_layer(oCamera.x,oCamera.y-50,"Ladder",oButton,{
-            image_xscale:20,
-            image_yscale:5,
-            font_size:3,
-            button_text:"Quit To Menu",
-            func:function() {room_goto(Menu)}
-        })
-        
-        quitGame=instance_create_layer(oCamera.x,oCamera.y+50,"Ladder",oButton,{
-            image_xscale:20,
-            image_yscale:5,
-            font_size:3,
-            button_text:"Quit",
-            func:function() {game_end()}
-        })
         
         if (global.devMode){
-            goToTutorial=instance_create_layer(oCamera.x,oCamera.y+150,"Ladder",oButton,{   
-                image_xscale:20,
-                image_yscale:5,
-                font_size:3,
+			quitToMenu=instance_create_layer(display_get_gui_width()/2,display_get_gui_height()/3-125,"Ladder",oButton,{
+	            image_xscale:60,
+	            image_yscale:12,
+	            font_size:7,
+	            button_text:"Quit To Menu",
+				follow_player:true,
+	            func:function() {room_goto(Menu)}
+	        }) 
+			
+			quitGame=instance_create_layer(display_get_gui_width()/2,display_get_gui_height()*2/3-125,"Ladder",oButton,{
+	            image_xscale:60,
+	            image_yscale:12,
+	            font_size:7,
+	            button_text:"Quit",
+				follow_player:true,
+	            func:function() {game_end()}
+	        })
+			
+            goToTutorial=instance_create_layer(display_get_gui_width()/2,display_get_gui_height()-125,"Ladder",oButton,{   
+                image_xscale:60,
+	            image_yscale:12,
+	            font_size:7,
                 button_text:"Test Dummy",
+				follow_player:true,
                 func:function() {room_goto(Tutorial)}
             })
-        }
+        }else{
+			quitGame=instance_create_layer(display_get_gui_width()/2,display_get_gui_height()/2-125,"Ladder",oButton,{
+	            image_xscale:60,
+	            image_yscale:12,
+	            font_size:7,
+	            button_text:"Quit",
+				follow_player:true,
+	            func:function() {game_end()}
+	        })
+			
+			quitToMenu=instance_create_layer(display_get_gui_width()/2,display_get_gui_height()/2+125,"Ladder",oButton,{
+	            image_xscale:60,
+	            image_yscale:12,
+	            font_size:7,
+	            button_text:"Quit To Menu",
+				follow_player:true,
+	            func:function() {room_goto(Menu)}
+	        }) 
+		}
     }else {
     	instance_destroy(quitToMenu)
         instance_destroy(quitGame)

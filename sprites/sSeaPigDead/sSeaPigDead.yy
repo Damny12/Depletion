@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":7,
   "parent":{
-    "name":"normal_enemies",
-    "path":"folders/graphics/enemies/normal_enemies.yy",
+    "name":"sea_pig",
+    "path":"folders/graphics/enemies/normal_enemies/sea_pig.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

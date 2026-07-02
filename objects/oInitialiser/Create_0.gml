@@ -11,11 +11,12 @@ global.skills=[]
 global.skillDescriptions={
     "Poison":"Deals damage over time.\nEvery purchase of this upgrade\nmakes the enemy take\nanother tick of damage.",
     "Strength":"Makes your weapon do\nmore damage per hit. Every\npurchase you do 1\nmore damage per hit.",
-    "Glide":"Makes you able to\nGlide when reaching a certain\nspeed. Every purchase makes\ngliding faster and lower\ngravity.",
-    "Knockback":"Increases the amount\nyou push enemies back\nby. Every purchase makes\nyou knock them back by\n25% more.",
-	"Bow":"Replaces your current weapon\nwith a bow that\nshoots in the direction\nof your mouse\nand goes through enemies.",
-	"Breathing":"Reduces the amount\nof oxygen that\nyou use.",
-	"Sword":"Replaces your current weapon\nwith a sword that\ncan attack and push\nenemies back."
+    "Knockback":"Increases the amount you push\n enemies back by. Every\n purchase makes you knock\n them back by 25% more.",
+	"Bow":"Replaces your current weapon\nwith a bow that shoots in the\n direction your mouse.",
+	"Breathing":"Reduces the amount of\n oxygen that you use\nand allows you\nto attack more times\n with the hammer",
+	"Sword":"Replaces your current weapon\n with a sword that can attack\n and push enemies back.",
+	"Reload":"Decreases the time between\neach shot of your bow.",
+	"Hammer":"Does double the damage of the\nsword, but drains your\n oxygen every swing."
 }
 global.modifiers=[]
 global.modifierDescription={
@@ -28,17 +29,15 @@ global.modifierStatsDescription={
 	"CrabClaw":$"{Count(global.modifiers,CrabClaw)}x"
 }
 
-global.originalWindowPositionX=window_get_x()
-global.originalWindowPositionY=window_get_y()
-
 //enemies
 global.enemyHp=0
 global.enemies=[
     oCrab,
     oSeaPig,
 	oSeaHorse,
+	oSwordFish,
 	oCrabClaw
-]
+] 
 global.projectiles=[
 	oBabySeaHorse,
 	oBabySeaHorseExplodee,
@@ -58,6 +57,7 @@ if (room==StartUp){
     global.deactivateCoins=false
     global.vsync=true
     global.fullScreen=true
+	global.newCameraMode=true
     display_reset(false,global.vsync)
     window_set_fullscreen(global.fullScreen)
     room_goto(Menu)

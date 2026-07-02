@@ -1,5 +1,5 @@
 if (!oMenu.paused){
-	if (global.floorLevel mod 10 == 0 and room!=BossRoom and global.floorLevel> 0 and global.devMode==true){
+	if (global.floorLevel mod 5 == 0 and room!=BossRoom and global.floorLevel>=0){
 		room_goto(BossRoom)
 	}
 	
@@ -21,6 +21,10 @@ if (!oMenu.paused){
         lastCollect=true
     }
     
+	if (keyboard_check(vk_f2) && keyboard_check(vk_shift) && global.devMode) {
+		array_push(global.skills,"Reload")
+	}
+	
     var _ground=layer_tilemap_get_id("Ground")
     var _bouncers=[oCorpse]
     var _killers=layer_tilemap_get_id("Die")
@@ -65,15 +69,20 @@ if (!oMenu.paused){
             oOxygenBar.loss=true
     		oxygen-=enemyDrain*drainMult*_enemies[i].damageMult
     		iframes=25
-    		if (yspd<=0){
-    			yspd=-5
-    		} else{
-    			yspd*=-2
-    			if (abs(yspd)>6 and sign(yspd)!=0){ 
-    				yspd=6*sign(yspd)
-    			}
-    		}
+    		xspd=5*sign(x-_enemies[i].x)*_enemies[i].knockBackMult
+			yspd-=4
+			knockbackTicks=-30
     		glideToggle=false
+			
+			if (place_meeting(x+xspd,y,_ground)){
+		    	var _pixelCheck= _subpixel*sign(xspd)
+		    	
+		    	while(!place_meeting(x+xspd,y,_ground)){
+		    		x-=_pixelCheck
+		    	}
+		    	
+		    	xspd=0
+		    }
     	}
     }
 	
@@ -83,9 +92,20 @@ if (!oMenu.paused){
             oOxygenBar.loss=true
     		oxygen-=enemyDrain*drainMult*_projectiles[i].damageMult
     		iframes=25
-			xspd+=1
-    		xspd*=-1
+			xspd=4*sign(x-_projectiles[i].x)*_projectiles[i].knockBackMult
+			yspd-=3
+			knockbackTicks=-30
     		glideToggle=false
+			
+			if (place_meeting(x+xspd,y,_ground)){
+		    	var _pixelCheck= _subpixel*sign(xspd)
+		    	
+		    	while(!place_meeting(x+xspd,y,_ground)){
+		    		x-=_pixelCheck
+		    	}
+		    	
+		    	xspd=0
+		    }
     	}
     }
     
@@ -136,6 +156,22 @@ if (!oMenu.paused){
     	glideToggle=false
         jumped=false
     }
+	
+	//get out of grounf
+	if (place_meeting(x,y-1,_ground) and place_meeting(x,y+1,_ground)){
+
+    	while(place_meeting(x,y + 1,_ground)){
+    		y-=_subpixel*sign(grav)+10
+    	}
+		
+		while(place_meeting(x,y - 1,_ground)){
+    		y+=_subpixel*sign(grav)+10
+    	}
+    	
+    	yspd=0
+    	glideToggle=false
+        jumped=true
+    }
     
     //Hanging
     if (place_meeting(x,y-yspd,layer_tilemap_get_id("Ground"))){
@@ -148,7 +184,7 @@ if (!oMenu.paused){
     }
     
     //glide
-    if (Count(skillSet,"Glide") >= 1 && yspd >= termvel-2.5){
+    if (Count(global.skills,"Glide") >= 1 && yspd >= termvel-2.5){
     	glideToggle=true
     }
     
@@ -211,6 +247,10 @@ if (!oMenu.paused){
 	}else{
 		lavaTick=1
 	}
+	
+	if (place_meeting(x,y,oBreath)){
+		oxygen=maxOxygen
+	}
     
     //oxygen
     oxygen-=naturalDrain*drainMult
@@ -230,8 +270,23 @@ if (!oMenu.paused){
             attackObject.image_xscale=prevDir
         }
     	attackDebounce=attackCooldown+attackLength
+		
+		if (global.weapon == oHammer){
+			for (var i = array_length(hammerOxygen)-1; i>=0; i--){
+				if (hammerOxygen[i]<oxygen){
+					oxygen = hammerOxygen[i]
+					source = "Enemy"
+					oOxygenBar.loss=true
+					break
+				}
+				
+				if (i == 0){
+					instance_destroy(attackObject)
+				}
+			}
+		}
     }
-    
+	
 	//move
     y+=yspd
     x+=xspd

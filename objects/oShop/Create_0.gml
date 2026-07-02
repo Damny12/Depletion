@@ -2,58 +2,73 @@ cards=[{
 	title:"Poison",
 	asset:poison,
 	cost:4,
-	weapon:noone
+	weapon:[global.weapon]
 },{
 	title:"Strength",
 	asset:strength,
 	cost:5,
-	weapon:noone
+	weapon:[global.weapon]
 },{
 	title:"Knockback",
 	asset:knockback,
 	cost:3,
-	weapon:noone
+	weapon:[global.weapon]
 },{
 	title:"Breathing",
 	asset:BreathHolding,
 	cost:6,
-	weapon:noone
+	weapon:[global.weapon]
 },{
 	title:"Bow",
 	asset:BowAndArrow,
-	cost:11,
-	weapon:oArrow
+	cost:8,
+	weapon:["!",oArrow]
 },{
 	title:"Sword",
 	asset:Sword,
+	cost:11,
+	weapon:["!",oAttack]
+},{
+	title:"Reload",
+	asset:ArrowReload,
 	cost:8,
-	weapon:oAttack
+	weapon:[oArrow]
+},{
+	title:"Hammer",
+	asset:Hammer,
+	cost:13,
+	weapon:["!",oHammer]
 }]
-
-//first card
-card=cards[irandom_range(0,(array_length(cards)-1))]
-
-while (card.weapon==global.weapon){
+function makeCard(){
 	card=cards[irandom_range(0,(array_length(cards)-1))]
+	
+	while (((array_contains(card.weapon,global.weapon) and card.weapon[0]=="!") or (!array_contains(card.weapon,global.weapon) and card.weapon[0]!="!"))) {
+		if (card.weapon[0]=="!"){
+			while (array_contains(card.weapon,global.weapon)){
+				card=cards[irandom_range(0,(array_length(cards)-1))]
+			}
+		}else{
+			_prev=card
+			while (!array_contains(card.weapon,global.weapon)){
+				card=cards[irandom_range(0,(array_length(cards)-1))]
+			}
+		}
+	}
 }
- 
+//first card
+
+makeCard()
+
 newCard(273.2,300,card.asset,card.cost,card.title)
 
 //second card
-card=cards[irandom_range(0,(array_length(cards)-1))]
 
-while (card.weapon==global.weapon){
-	card=cards[irandom_range(0,(array_length(cards)-1))]
-}
+makeCard()
 
 newCard(683,300,card.asset,card.cost,card.title)
 
 //third card
-card=cards[irandom_range(0,(array_length(cards)-1))]
-
-while (card.weapon==global.weapon){
-	card=cards[irandom_range(0,(array_length(cards)-1))]
-}
+makeCard()
 
 newCard(1092,300,card.asset,card.cost,card.title)
 
@@ -65,4 +80,6 @@ leaveButton=newButton(1192,50,3,3,"",function(){
 
 leaveButton.sprite_index=orange_button_restart
 
-if global.finalCoins>99 global.finalCoins=99
+if (global.finalCoins>99){
+	global.finalCoins=99
+}

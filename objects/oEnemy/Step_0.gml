@@ -3,21 +3,6 @@ if (devEnemy and !global.devMode){
 }
 
 if (!oMenu.paused){ 
-	
-	yspd+=1
-	
-	if (place_meeting(x,y+yspd,layer_tilemap_get_id("Ground"))){
-		yspd=0
-		
-		while (place_meeting(x,y,layer_tilemap_get_id("Ground"))){
-			y-=0.5
-		}
-		
-		while (place_meeting(x,y,layer_tilemap_get_id("Ground"))){
-			y+=0.25
-		}
-	}
-	
 	function seeObject(object){
 		for (var i=1;i<sightRange;i+=1) {
 			if (place_meeting(x+i*32*movDir,y,object)){
@@ -49,11 +34,13 @@ if (!oMenu.paused){
 		if (seeObject(oPlayer)[0]){
 			//Get angry
 			movespeed=defaultMoveSpeed*angerMult*movDir
+			termVel=defaultTermVel*angerMult
 			sprite_index=angerSprite
 			return
 		}else{
 			//Calm down
 			movespeed=defaultMoveSpeed*movDir
+			termVel=defaultTermVel
 			sprite_index=calmSprite
 		}
      }
@@ -85,7 +72,7 @@ if (!oMenu.paused){
 			
 			if (_attackWeapon[i].knockBackEnemy){
 				xspd=sign(_attackWeapon[i].image_xscale)*termVel*oPlayer.knockbackMult
-		        if(place_meeting(x+xspd,y,layer_tilemap_get_id("Ground")) /*Did i hit a wall?*/ or !place_meeting(x+xspd,y+32,layer_tilemap_get_id("Ground")) /*Is there ground infront of me?*/) {
+		        if(place_meeting(x+xspd*3,y,layer_tilemap_get_id("Ground")) /*Did i hit a wall?*/ or !place_meeting(x+xspd*3,y+32,layer_tilemap_get_id("Ground")) /*Is there ground infront of me?*/) {
 		            x-=movespeed*movDir*xspd
 		            xspd=0
 		            movDir*=-1
@@ -115,15 +102,15 @@ if (!oMenu.paused){
     //posion
     if (poisonedDuration>0){
          if (array_contains(oPlayer.poisonTicks,poisonedDuration)){
-         hp-=oPlayer.poisonDmg*poisonDmgEffectiveness
+         	hp-=oPlayer.poisonDmg*poisonDmgEffectiveness
          }
-         poisonedDuration-=1
+         poisonedDuration--
     }
     
     //take damage
     if (array_contains(oPlayer.poisonTicks,poisonedDuration) && poisonedDuration==0){
-     hp-=oPlayer.poisonDmg*poisonDmgEffectiveness
-     poisonedDuration=-1
+		hp-=oPlayer.poisonDmg*poisonDmgEffectiveness
+		poisonedDuration=-1
     }
     
     //defeat
@@ -133,7 +120,8 @@ if (!oMenu.paused){
        
        //corpse
        instance_create_layer(x,y,"Enemy",corpse,{
-       sprite_index:corpseSprite
+        sprite_index:corpseSprite,
+		despawnTimer:corpseDespawnTimer
        })
        instance_destroy()
  	}
@@ -205,6 +193,5 @@ if (!oMenu.paused){
 		} 
 	}
     
-	y+=yspd
     xspd/=xFriction
 }
