@@ -1,5 +1,5 @@
 if (!oMenu.paused){
-	if (global.floorLevel mod 5 == 0 and room!=BossRoom and global.floorLevel>=0){
+	if (global.floorLevel mod 5 == 0 and room!=BossRoom and global.floorLevel>0){
 		room_goto(BossRoom)
 	}
 	

@@ -1,5 +1,5 @@
 // moving
-moveDir=1
+moveDir=0
 moveSpd=0.4
 defaultMoveSpd=0.4
 

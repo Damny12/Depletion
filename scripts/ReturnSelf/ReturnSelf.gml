@@ -1,5 +1,4 @@
 function ReturnSelf(){
-	show_debug_message(self)
 	return self
 }
 

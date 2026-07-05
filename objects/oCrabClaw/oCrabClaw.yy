@@ -27,8 +27,8 @@
   "physicsShapePoints":[],
   "physicsStartAwake":true,
   "properties":[
-    {"$GMObjectProperty":"v2","%Name":"damageMult","filters":[],"listItems":[],"multiselect":false,"name":"damageMult","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"2.0","varType":0,},
-    {"$GMObjectProperty":"v2","%Name":"knockBackMult","filters":[],"listItems":[],"multiselect":false,"name":"knockBackMult","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0.2","varType":0,},
+    {"$GMObjectProperty":"v2","%Name":"damageMult","filters":[],"listItems":[],"multiselect":false,"name":"damageMult","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"4.0","varType":0,},
+    {"$GMObjectProperty":"v2","%Name":"knockBackMult","filters":[],"listItems":[],"multiselect":false,"name":"knockBackMult","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"3","varType":0,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",

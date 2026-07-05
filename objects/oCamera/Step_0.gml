@@ -34,6 +34,7 @@ if (!oMenu.paused){
 	    xspd-=xspd*dragX
 	    yspd-=yspd*dragY
 	}else{
+		show_debug_message($"x:{x} y:{y} offset{xOffset}")
 		if (oPlayer.moveDir<0){
 			xOffset-=xSmoothing
 		}

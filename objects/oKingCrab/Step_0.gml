@@ -19,7 +19,7 @@ if (!oMenu.paused){
 			instance_create_layer(oPlayer.x-128,y-64,"Enemy",oCrab,{
 				defaultHp:2,
 				corpseDespawnTimer:60,
-				knockBackMult:0.1
+				knockBackMult:2
 			})
 			attacks++
 		}
