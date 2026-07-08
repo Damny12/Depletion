@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"volume",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"volume",
+  "parent":{
+    "name":"sliders",
+    "path":"folders/scripts/GUI/sliders.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

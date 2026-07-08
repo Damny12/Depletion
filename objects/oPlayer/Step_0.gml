@@ -19,10 +19,11 @@ if (!oMenu.paused){
     	coins=coinCount
     	makingCoins=true
         lastCollect=true
+		endY=y
     }
     
 	if (keyboard_check(vk_f2) && keyboard_check(vk_shift) && global.devMode) {
-		array_push(global.skills,"Reload")
+		oxygen = 0
 	}
 	
     var _ground=layer_tilemap_get_id("Ground")
@@ -68,11 +69,14 @@ if (!oMenu.paused){
             source="Enemy"
             oOxygenBar.loss=true
     		oxygen-=enemyDrain*drainMult*_enemies[i].damageMult
-    		iframes=25
+    		iframes=50
     		xspd=5*sign(x-_enemies[i].x)*_enemies[i].knockBackMult
-			yspd-=4
+			yspd=-4
 			knockbackTicks=-30
     		glideToggle=false
+			
+			oCamera.shakePower = 3
+			oCamera.shakeValue = 2
 			
 			if (place_meeting(x+xspd,y,_ground)){
 		    	var _pixelCheck= _subpixel*sign(xspd)
@@ -91,11 +95,14 @@ if (!oMenu.paused){
             source="Enemy"
             oOxygenBar.loss=true
     		oxygen-=enemyDrain*drainMult*_projectiles[i].damageMult
-    		iframes=25
+    		iframes=50
 			xspd=4*sign(x-_projectiles[i].x)*_projectiles[i].knockBackMult
-			yspd-=3
+			yspd=-3
 			knockbackTicks=-30
     		glideToggle=false
+			
+			oCamera.shakePower = 2
+			oCamera.shakeValue = 2
 			
 			if (place_meeting(x+xspd,y,_ground)){
 		    	var _pixelCheck= _subpixel*sign(xspd)
@@ -132,11 +139,13 @@ if (!oMenu.paused){
     	glideToggle=false
     }
     
-    //jump that
+    //jump
     if (up_key and place_meeting(x,y+(sign(grav)),_ground) and !jumped){
     	yspd=jmpspd
     	oxygen+=jmpspd*naturalDrain*3*drainMult
         jumped=true
+		oCamera.shakePower = 2
+		oCamera.shakeValue = 1.3
         
         source="Jump"
         oOxygenBar.loss=true
@@ -155,6 +164,9 @@ if (!oMenu.paused){
     	yspd=0
     	glideToggle=false
         jumped=false
+		if (tilemap_get_at_pixel(_ground,x,y+yspd) == 3){
+			instance_create_layer(x+96, y -256, "Enemy", oCrabSpawner)
+		}
     }
 	
 	//get out of grounf
@@ -258,7 +270,7 @@ if (!oMenu.paused){
     
     if (oxygen<=0){
 		global.finalCoins-=totalCoins
-    	room_restart()
+    	room_goto(Death)
     }
     
     //attacking
@@ -277,6 +289,8 @@ if (!oMenu.paused){
 					oxygen = hammerOxygen[i]
 					source = "Enemy"
 					oOxygenBar.loss=true
+					oCamera.shakePower = 4
+					oCamera.shakeValue = 2
 					break
 				}
 				
@@ -301,6 +315,7 @@ if (!oMenu.paused){
            	coinCount=(global.finalOxygen*global.coinOxygenConversion)
            	coins+=coinCount
            	makingCoins=true
+			endY=y
         }
     }
     
@@ -328,12 +343,19 @@ if (!oMenu.paused){
 	
 	if (lavaTick>1){
 		oOxygenBar.loss=true
+		oCamera.shakePower = 1.1
+		oCamera.shakeValue = 2
 	}
     
     //coin
     if (makingCoins){
         if (lastCollect){
             drainMult=0
+			x = oLadder.x + 16
+			grav=0
+			if (coinFrame % 30 == 0){
+				y-=8
+			}
         }
         
     	if (coinFrame==0 and !coins<=0 and !global.deactivateCoins){

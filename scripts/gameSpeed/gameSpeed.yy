@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"gameSpeed",
   "parent":{
-    "name":"GUI",
-    "path":"folders/scripts/GUI.yy",
+    "name":"sliders",
+    "path":"folders/scripts/GUI/sliders.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

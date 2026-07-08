@@ -34,7 +34,6 @@ if (!oMenu.paused){
 	    xspd-=xspd*dragX
 	    yspd-=yspd*dragY
 	}else{
-		show_debug_message($"x:{x} y:{y} offset{xOffset}")
 		if (oPlayer.moveDir<0){
 			xOffset-=xSmoothing
 		}
@@ -43,11 +42,21 @@ if (!oMenu.paused){
 			xOffset+=xSmoothing
 		}
 		
-		if (abs(xOffset)>oPlayer.moveDir*maxOffset){
+		if (abs(xOffset)>oPlayer.moveDir*maxOffsetStill and oPlayer.moveDir == 0){
+			xOffset=oPlayer.moveDir*maxOffsetStill
+		}
+		
+		if (abs(xOffset)>oPlayer.moveDir*maxOffset and oPlayer.moveDir != 0){
 			xOffset=oPlayer.moveDir*maxOffset
 		}
 		
-		x=lerp(x,oPlayer.x,0.05)+xOffset
-		y=lerp(y,oPlayer.y,0.1)
+		shake = power(shakeValue, 2) * shakePower
+		x=lerp(x,oPlayer.x,0.05)+xOffset+random_range(-shake, shake)
+		y=lerp(y,oPlayer.y,0.1)+random_range(-shake, shake)
+		
+		if (shakeValue > 0){
+			shakeValue-=0.1
+		}
+		camera_set_view_angle(view_camera[0], random_range(-shake, shake)/100)
 	}
 }

@@ -1,6 +1,7 @@
 window_enable_borderless_fullscreen(true)
 
 //globals
+global.cards = {}
 global.floorLevel=0
 global.weapon=oAttack
 global.drainMult=1
@@ -51,12 +52,13 @@ global.spaceKey="W"
 global.attackKey="E"
 
 if (room==StartUp){
+	global.volume = 100
 	global.tutorial=true
     global.devMode=false
     global.deactivateBubbles=false
     global.deactivateCoins=false
     global.vsync=true
-    global.fullScreen=true
+    global.fullScreen=false
 	global.newCameraMode=true
     display_reset(false,global.vsync)
     window_set_fullscreen(global.fullScreen)

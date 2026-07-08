@@ -11,4 +11,8 @@ thresholdY = 140
 
 xOffset = 0
 xSmoothing = 0.2
-maxOffset = 3
+maxOffsetStill = 3
+maxOffset = 5
+
+shakePower = 2
+shakeValue = 0

@@ -1,4 +1,6 @@
-cards=[{
+audio_play_sound(No_1_Upbeat, 1, true, global.volume/100)
+
+global.cards=[{
 	title:"Poison",
 	asset:poison,
 	cost:4,
@@ -40,17 +42,17 @@ cards=[{
 	weapon:["!",oHammer]
 }]
 function makeCard(){
-	card=cards[irandom_range(0,(array_length(cards)-1))]
+	card=global.cards[irandom_range(0,(array_length(global.cards)-1))]
 	
 	while (((array_contains(card.weapon,global.weapon) and card.weapon[0]=="!") or (!array_contains(card.weapon,global.weapon) and card.weapon[0]!="!"))) {
 		if (card.weapon[0]=="!"){
 			while (array_contains(card.weapon,global.weapon)){
-				card=cards[irandom_range(0,(array_length(cards)-1))]
+				card=global.cards[irandom_range(0,(array_length(global.cards)-1))]
 			}
 		}else{
 			_prev=card
 			while (!array_contains(card.weapon,global.weapon)){
-				card=cards[irandom_range(0,(array_length(cards)-1))]
+				card=global.cards[irandom_range(0,(array_length(global.cards)-1))]
 			}
 		}
 	}

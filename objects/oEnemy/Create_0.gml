@@ -27,3 +27,5 @@ shootDelayTick=0
 while (place_meeting(x,y,layer_tilemap_get_id("Ground"))) {
 	x+=1
 }
+
+active = true

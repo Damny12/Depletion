@@ -2,7 +2,7 @@ if (devEnemy and !global.devMode){
     instance_destroy(self)
 }
 
-if (!oMenu.paused){ 
+if (!oMenu.paused and active){ 
 	function seeObject(object){
 		for (var i=1;i<sightRange;i+=1) {
 			if (place_meeting(x+i*32*movDir,y,object)){
@@ -66,6 +66,17 @@ if (!oMenu.paused){
 		if (iframes==0 && place_meeting(x,y,_attackWeapon[i])){
 	        hp-=oPlayer.attackDmg
 	        iframes=secondsOfInvincibility*30
+			
+			if (oCamera.shakePower <= 0){
+				oCamera.shakePower = 2
+			}
+			
+			if (oCamera.shakeValue <= 0){
+				oCamera.shakeValue = 2
+			}else{
+				oCamera.shakeValue += 1
+			}
+			
 	        if (oPlayer.poisonDmg>0){
 	            poisonedDuration=60
 	        }
@@ -93,8 +104,8 @@ if (!oMenu.paused){
 			}
 			
 			if (_attackWeapon[i].knockBackPlayer){
-				oPlayer.xspd-=sign(_attackWeapon[i].image_xscale)*oPlayer.xTermvel*oPlayer.knockbackMult
-	        	oPlayer.knockbackTick=-20
+				oPlayer.xspd=5*movDir
+	        	oPlayer.knockbackTick=-30
 			}
 	    }
 	}

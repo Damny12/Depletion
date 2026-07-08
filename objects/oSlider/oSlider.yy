@@ -32,7 +32,7 @@
     {"$GMObjectProperty":"v2","%Name":"minVal","filters":[],"listItems":[],"multiselect":false,"name":"minVal","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":0,},
     {"$GMObjectProperty":"v2","%Name":"maxVal","filters":[],"listItems":[],"multiselect":false,"name":"maxVal","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"10","varType":0,},
     {"$GMObjectProperty":"v2","%Name":"valHandler","filters":[],"listItems":[],"multiselect":false,"name":"valHandler","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"function(){}","varType":4,},
-    {"$GMObjectProperty":"v2","%Name":"defaultValue","filters":[],"listItems":[],"multiselect":false,"name":"defaultValue","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":0,},
+    {"$GMObjectProperty":"v2","%Name":"defaultValue","filters":[],"listItems":[],"multiselect":false,"name":"defaultValue","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":4,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",

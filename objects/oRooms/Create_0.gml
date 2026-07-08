@@ -30,6 +30,9 @@ dipSeaHorse=[[0,0,0],[1,1,0],[2,2,0],[3,2,0],[4,2,0],[5,1,0],[6,1,0],[7,1,0],[7,
 //sword fish enemies
 flatSwordFish=[[0,0,0],[1,0,0],[2,0,0],[3,0,0],[4,0,0],[4,-1,5],[5,0,0],[6,0,0],[7,0,0],[8,0,0],[9,0,0]]
 
+//falling
+flatFall=[[0,0,0],[1,0,0],[2,0,-1],[3,0,0],[4,0,0],[5,0,0]]
+
 //flat,stairup,stairdown,drop
 if (global.floorLevel==0){
 	global.blocks=[flat,stairup,stairdown,drop]
@@ -38,7 +41,7 @@ if (global.floorLevel==0){
 
 //rarities
 common=[flatSeaHorse,stairSeaHorse,dipSeaHorse]
-uncommon=[lavaSeaHorse]
+uncommon=[lavaSeaHorse,flatFall]
 rare=[flatSwordFish]
 
 //roll for rarity
@@ -132,6 +135,10 @@ function TileGround(tiles){
 		}
 		
 		//make tile
+		if (enemy==-1) {
+			tilemap_set_at_pixel(ground,3,x,y)
+		}
+		
 		if (enemy==0) {
 			tilemap_set_at_pixel(ground,1,x,y)
 		}
