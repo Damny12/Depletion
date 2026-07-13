@@ -5,11 +5,11 @@
   "applyKerning":0,
   "ascender":14,
   "ascenderOffset":0,
-  "bold":false,
+  "bold":true,
   "canGenerateBitmap":true,
   "charset":0,
   "first":0,
-  "fontName":"Corbel Light",
+  "fontName":"Corbel",
   "glyphOperations":0,
   "glyphs":{
     "32":{"character":32,"h":19,"offset":0,"shift":3,"w":3,"x":2,"y":2,},
@@ -113,7 +113,7 @@
   "hinting":0,
   "includeTTF":false,
   "interpreter":0,
-  "italic":false,
+  "italic":true,
   "kerningPairs":[
     {"amount":-1,"first":32,"second":84,},
     {"amount":-1,"first":32,"second":86,},

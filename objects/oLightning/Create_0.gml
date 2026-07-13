@@ -1,1 +1,0 @@
-tick = starting_tick

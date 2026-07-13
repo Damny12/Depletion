@@ -19,7 +19,8 @@ if (!oMenu.paused){
 			instance_create_layer(oPlayer.x-128,y-64,"Enemy",oCrab,{
 				defaultHp:2,
 				corpseDespawnTimer:60,
-				knockBackMult:2
+				knockBackMult:2,
+				reward:1
 			})
 			attacks++
 		}
@@ -44,7 +45,9 @@ if (!oMenu.paused){
 		}
 		
 		if (phases>0 and phases % 2 == 0){
-			instance_create_layer(oPlayer.x+irandom_range(-64,64),oPlayer.y-256,"PlayerStuff",oBreath)
+			repeat (10) {
+				instance_create_layer(oPlayer.x+irandom_range(-64,64),oPlayer.y-256+irandom_range(-16,16),"PlayerStuff",oBreath)
+			}
 			hp-=10
 		}
 	}

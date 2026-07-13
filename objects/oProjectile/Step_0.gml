@@ -18,7 +18,7 @@ if (!oMenu.paused){
 	
 	if (is_array(hitObject)){
 		for (var i = 0;i<array_length(hitObject);i++){
-			if (place_meeting(x,y,hitObject[i]) and destroyOnHitObject){
+			if (place_meeting(x,y,hitObject[i]) and destroyOnHitObject and hitObject[i]!=oPlayer){
 				if (explodesOnDestroy){
 					repeat (explodeCount) {
 						instance_create_layer(x,y,"PlayerStuff",explodeInto)
@@ -29,7 +29,7 @@ if (!oMenu.paused){
 			}
 		}
 	}else{
-		if (place_meeting(x,y,hitObject) and destroyOnHitObject){
+		if (place_meeting(x,y,hitObject) and destroyOnHitObject and hitObject!=oPlayer){
 			if (explodesOnDestroy){
 				repeat (explodeCount) {
 					instance_create_layer(x,y,"PlayerStuff",explodeInto)

@@ -1,3 +1,11 @@
+if (position_meeting(mouse_x,mouse_y,self) and mouse_check_button_pressed(mb_left)){
+	stretchX = -0.5
+	stretchY = 1
+}
+
+stretchX = quadraticTween(stretchX, 0,0.55)
+stretchY = quadraticTween(stretchY, 0,0.55)
+
 if (thunderstorm){
 	x+=4
 	y += sin(x/64)*4

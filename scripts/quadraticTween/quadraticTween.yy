@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"quadraticTween",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"quadraticTween",
+  "parent":{
+    "name":"utility",
+    "path":"folders/scripts/utility.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

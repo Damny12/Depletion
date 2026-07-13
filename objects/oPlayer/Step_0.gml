@@ -1,5 +1,5 @@
 if (!oMenu.paused){
-	if (global.floorLevel mod 5 == 0 and room!=BossRoom and global.floorLevel>0){
+	if (global.floorLevel mod 5 == 0 and room!=BossRoom and global.floorLevel<0){
 		room_goto(BossRoom)
 	}
 	
@@ -65,29 +65,61 @@ if (!oMenu.paused){
     
     //damaging
     for (var i=0;i<array_length(_enemies);i++){
-    	if (place_meeting(x,y,_enemies[i]) and iframes<=0 and _enemies[i].damageMult>0){
-            source="Enemy"
-            oOxygenBar.loss=true
-    		oxygen-=enemyDrain*drainMult*_enemies[i].damageMult
-    		iframes=50
-    		xspd=5*sign(x-_enemies[i].x)*_enemies[i].knockBackMult
-			yspd=-4
-			knockbackTicks=-30
-    		glideToggle=false
+		if (instance_exists(_enemies[i])){
+			if (abs(y - _enemies[i].y) <= 128 and abs(x - _enemies[i].x) <= 24){
+				if (attack_key and attackDebounce<=0 and (global.weapon == oAttack or global.weapon == oHammer)){
+					attackObject = instance_create_layer(x,y,"PlayerStuff",global.weapon,{
+						sprite_index:sDownSlash
+					})
+					
+					attackDebounce=(attackCooldown/2)+attackLength
+					
+					yspd = -4
+				}
+				
+				if (global.weapon == oHammer){
+					for (var j = array_length(hammerOxygen)-1; j>=0; j--){
+						if (hammerOxygen[j]<oxygen){
+							oxygen = hammerOxygen[j]
+							source = "Enemy"
+							oOxygenBar.loss=true
+							oCamera.shakePower = 4
+							oCamera.shakeValue = 2
+							break
+						}
+						
+						if (i == 0){
+							instance_destroy(attackObject)
+						}
+					
+					}
+				}
+			}
 			
-			oCamera.shakePower = 3
-			oCamera.shakeValue = 2
-			
-			if (place_meeting(x+xspd,y,_ground)){
-		    	var _pixelCheck= _subpixel*sign(xspd)
-		    	
-		    	while(!place_meeting(x+xspd,y,_ground)){
-		    		x-=_pixelCheck
-		    	}
-		    	
-		    	xspd=0
-		    }
-    	}
+	    	if (place_meeting(x,y,_enemies[i]) and iframes<=0 and _enemies[i].damageMult>0){
+	            source="Enemy"
+	            oOxygenBar.loss=true
+	    		oxygen-=enemyDrain*drainMult*_enemies[i].damageMult
+	    		iframes=50
+	    		xspd=5*sign(x-_enemies[i].x)*_enemies[i].knockBackMult
+				yspd=-4
+				knockbackTicks=-30
+	    		glideToggle=false
+				
+				oCamera.shakePower = 3
+				oCamera.shakeValue = 2
+				
+				if (place_meeting(x+xspd,y,_ground)){
+			    	var _pixelCheck= _subpixel*sign(xspd)
+			    	
+			    	while(!place_meeting(x+xspd,y,_ground)){
+			    		x-=_pixelCheck
+			    	}
+			    	
+			    	xspd=0
+			    }
+	    	}
+		}
     }
 	
 	for (var i=0;i<array_length(_projectiles);i++){
@@ -95,7 +127,7 @@ if (!oMenu.paused){
             source="Enemy"
             oOxygenBar.loss=true
     		oxygen-=enemyDrain*drainMult*_projectiles[i].damageMult
-    		iframes=50
+    		iframes=25
 			xspd=4*sign(x-_projectiles[i].x)*_projectiles[i].knockBackMult
 			yspd=-3
 			knockbackTicks=-30
@@ -113,6 +145,10 @@ if (!oMenu.paused){
 		    	
 		    	xspd=0
 		    }
+			
+			if (array_contains(_projectiles[i].hitObject,oPlayer)){
+				instance_destroy(_projectiles[i])
+			}
     	}
     }
     
@@ -140,12 +176,14 @@ if (!oMenu.paused){
     }
     
     //jump
-    if (up_key and place_meeting(x,y+(sign(grav)),_ground) and !jumped){
+    if (up_key and place_meeting(x,y+(sign(grav)),_ground) and !inAir){
     	yspd=jmpspd
     	oxygen+=jmpspd*naturalDrain*3*drainMult
-        jumped=true
-		oCamera.shakePower = 2
-		oCamera.shakeValue = 1.3
+        inAir=true
+		
+		//scaling
+		stretchY = 1.5
+		stretchX = -1
         
         source="Jump"
         oOxygenBar.loss=true
@@ -161,16 +199,25 @@ if (!oMenu.paused){
     		y-=_pixelCheck*sign(grav)
     	}
     	
+		if (inAir == true or yspd >= 4){ 
+			stretchY = lerp(0,-0.5,clamp(yspd/4,0,2))
+			stretchX = lerp(0,1,clamp(yspd/4,0,1))
+			oCamera.shakePower = lerp(0,2,clamp(yspd/4,0,1))
+			oCamera.shakeValue = lerp(0,2,clamp(yspd/4,0,1))
+		}
+		
+		inAir=false
+		
     	yspd=0
     	glideToggle=false
-        jumped=false
+		
 		if (tilemap_get_at_pixel(_ground,x,y+yspd) == 3){
 			instance_create_layer(x+96, y -256, "Enemy", oCrabSpawner)
 		}
     }
 	
-	//get out of grounf
-	if (place_meeting(x,y-1,_ground) and place_meeting(x,y+1,_ground)){
+	//get out of ground
+	if (place_meeting(x,y-0.1,_ground) and place_meeting(x,y+0.1,_ground)){
 
     	while(place_meeting(x,y + 1,_ground)){
     		y-=_subpixel*sign(grav)+10
@@ -182,12 +229,12 @@ if (!oMenu.paused){
     	
     	yspd=0
     	glideToggle=false
-        jumped=true
+        inAir=true
     }
     
     //Hanging
     if (place_meeting(x,y-yspd,layer_tilemap_get_id("Ground"))){
-    			grav=-defaultgrav
+    			grav =- defaultgrav
     			jmpspd=1
     			oxygen-=movementDrain*drainMult
     	}else{
@@ -260,8 +307,12 @@ if (!oMenu.paused){
 		lavaTick=1
 	}
 	
-	if (place_meeting(x,y,oBreath)){
-		oxygen=maxOxygen
+	var breaths = [oBreath]
+	for (var i = 0; i < array_length(breaths); i++) {
+		if (place_meeting(x,y,breaths[i])){
+			oxygen+=1
+			instance_destroy(breaths[i])
+		}
 	}
     
     //oxygen
@@ -316,10 +367,11 @@ if (!oMenu.paused){
            	coins+=coinCount
            	makingCoins=true
 			endY=y
+			global.chosenCards = []
         }
     }
     
-    if (global.finalEnemyKillCoins!=0){
+    if (global.finalEnemyKillCoins!=0){ 
         coinCount=global.finalEnemyKillCoins
         global.finalEnemyKillCoins-=coinCount
         coins+=coinCount
@@ -353,13 +405,18 @@ if (!oMenu.paused){
             drainMult=0
 			x = oLadder.x + 16
 			grav=0
+			yspd=0
 			if (coinFrame % 30 == 0){
 				y-=8
 			}
         }
         
+		//create coin
     	if (coinFrame==0 and !coins<=0 and !global.deactivateCoins){
             instance_create_layer(x,y,"Ladder",oCoin)
+			
+			stretchY+=1
+			stretchX-=0.5
     	}
     	
     	coinFrame+=1
@@ -378,10 +435,21 @@ if (!oMenu.paused){
     	if (coins<=0 and coinFrame>=90){
     		makingCoins=false
             if (lastCollect and coinFrame){
-                room_goto(Shop)
+				if (room == Levels or room == Tutorial){
+					global.enemyHp+=1
+					room_goto(PhysicalShop)
+				}else{
+					room_goto(Levels)
+					global.coinOxygenConversion = 1
+				}
             }
     	}
     }
+	
     change()
     knockbackTicks++
+	
+	//lerp stretching
+	stretchX = quadraticTween(stretchX, 0,0.35)
+	stretchY = quadraticTween(stretchY, 0,0.35)
 }

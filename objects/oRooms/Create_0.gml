@@ -41,7 +41,7 @@ if (global.floorLevel==0){
 
 //rarities
 common=[flatSeaHorse,stairSeaHorse,dipSeaHorse]
-uncommon=[lavaSeaHorse,flatFall]
+uncommon=[lavaSeaHorse]
 rare=[flatSwordFish]
 
 //roll for rarity
@@ -256,11 +256,11 @@ for (x=0;x<room_width;x+=32){
 	//go up from bottom
 	var _continue=true
 	for (y=864;_continue==true;y-=32){		
-		if (tilemap_get_at_pixel(ground,x,y)==1){
+		if (tilemap_get_at_pixel(ground,x,y)==1 or tilemap_get_at_pixel(ground,x,y)==3){
 			_continue=false
 		}
 		
-		if (tilemap_get_at_pixel(die,x,y)==1){
+		if (tilemap_get_at_pixel(die,x,y)==2){
 			_continue=false
 		}
 		

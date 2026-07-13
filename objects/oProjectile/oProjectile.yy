@@ -37,7 +37,7 @@
     {"$GMObjectProperty":"v2","%Name":"explodeCount","filters":[],"listItems":[],"multiselect":false,"name":"explodeCount","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":1,},
     {"$GMObjectProperty":"v2","%Name":"hitObject","filters":[
         "GMObject",
-      ],"listItems":[],"multiselect":false,"name":"hitObject","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"layer_tilemap_get_id(\"ground\")","varType":5,},
+      ],"listItems":[],"multiselect":false,"name":"hitObject","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"[layer_tilemap_get_id(\"ground\"),oPlayer]","varType":5,},
     {"$GMObjectProperty":"v2","%Name":"objectSource","filters":[
         "GMObject",
       ],"listItems":[],"multiselect":false,"name":"objectSource","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resource":{"name":"oPlayer","path":"objects/oPlayer/oPlayer.yy",},"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"oPlayer","varType":5,},

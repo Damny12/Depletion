@@ -11,6 +11,7 @@
     {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oProjectile","path":"objects/oProjectile/oProjectile.yy",},"propertyId":{"name":"objectSource","path":"objects/oProjectile/oProjectile.yy",},"resource":{"name":"oPlayer","path":"objects/oPlayer/oPlayer.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"oPlayer",},
     {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oProjectile","path":"objects/oProjectile/oProjectile.yy",},"propertyId":{"name":"minAngle","path":"objects/oProjectile/oProjectile.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"-20",},
     {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oProjectile","path":"objects/oProjectile/oProjectile.yy",},"propertyId":{"name":"speedForce","path":"objects/oProjectile/oProjectile.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"0.02",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oProjectile","path":"objects/oProjectile/oProjectile.yy",},"propertyId":{"name":"knockBackMult","path":"objects/oProjectile/oProjectile.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"0",},
   ],
   "parent":{
     "name":"projectiles",

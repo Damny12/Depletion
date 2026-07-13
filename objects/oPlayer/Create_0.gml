@@ -19,7 +19,7 @@ knockbackTicks=0
 //jumping
 defaultgrav=0.275
 defaultjump=-5
-jumped=false
+inAir=false
 
 grav=defaultgrav
 defaultTermVel=6
@@ -76,6 +76,10 @@ glideTerminal=defaultTermVel/2
 glideSpeed=defaultMoveSpd*(1+Count(global.skills,"Glide")/8)
 glideSoftCapSpeed=0.02+defaultgrav
 
+//stretching
+stretchY = 0
+stretchX = 0
+
 //poison timing
 for(var i=0;i<Count(global.skills,"Poison");i++){
 	array_push(poisonTicks,60*(round(i/Count(global.skills,"Poison")*10))/10)
@@ -107,7 +111,8 @@ if (Count(global.skills,"Hammer")==1){
 }
 
 if (global.weapon == oHammer){
-	attackDmg*=2
+	attackDmg*=1.5
+	attackDmg=floor(attackDmg)
 	hammerOxygen=[]
 	
 	var fractionEquation = 11+Count(global.skills,"Breathing") //want to be able to attack 10 times, so make the number 11

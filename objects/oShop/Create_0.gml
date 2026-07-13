@@ -1,46 +1,5 @@
 audio_play_sound(No_1_Upbeat, 1, true, global.volume/100)
 
-global.cards=[{
-	title:"Poison",
-	asset:poison,
-	cost:4,
-	weapon:[global.weapon]
-},{
-	title:"Strength",
-	asset:strength,
-	cost:5,
-	weapon:[global.weapon]
-},{
-	title:"Knockback",
-	asset:knockback,
-	cost:3,
-	weapon:[global.weapon]
-},{
-	title:"Breathing",
-	asset:BreathHolding,
-	cost:6,
-	weapon:[global.weapon]
-},{
-	title:"Bow",
-	asset:BowAndArrow,
-	cost:8,
-	weapon:["!",oArrow]
-},{
-	title:"Sword",
-	asset:Sword,
-	cost:11,
-	weapon:["!",oAttack]
-},{
-	title:"Reload",
-	asset:ArrowReload,
-	cost:8,
-	weapon:[oArrow]
-},{
-	title:"Hammer",
-	asset:Hammer,
-	cost:13,
-	weapon:["!",oHammer]
-}]
 function makeCard(){
 	card=global.cards[irandom_range(0,(array_length(global.cards)-1))]
 	

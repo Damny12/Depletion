@@ -10,3 +10,6 @@ rainer = noone
 emitter = noone
 
 ogY = y
+
+stretchY=0
+stretchX=0
