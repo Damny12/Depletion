@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"select_3",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":1,
+  "compressionQuality":4,
+  "conversionMode":0,
+  "duration":0.6849887,
+  "exportDir":"",
+  "name":"select_3",
+  "parent":{
+    "name":"hover",
+    "path":"folders/audio/SFX/hover.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"select_3.mp3",
+  "volume":1.0,
+}

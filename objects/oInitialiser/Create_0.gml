@@ -8,7 +8,6 @@ global.coinOxygenConversion=1
 global.finalCoins=0
 global.finalEnemyKillCoins=0
 global.skills=[]
-global.chosenCards=[]
 global.skillDescriptions={
     "Poison":"Deals damage over time. Every purchase of this upgrademakes the enemy take another tick of damage.",
     "Strength":"Makes your weapon domore damage per hit. Every purchase you do 1 more damage per hit.",
@@ -27,7 +26,7 @@ global.modifierDescription={
 
 global.modifierStatsDescription={
 	"GrowingPressure":$"{global.drainMult}x",
-	"CrabClaw":$"{Count(global.modifiers,CrabClaw)}x"
+	"CrabClaw":$"{count(global.modifiers,CrabClaw)}x"
 }
 
 //enemies
@@ -101,16 +100,29 @@ global.cards=[{
 	isWeapon:true
 }]
 
+function setGlobal(name,value){
+	try {
+		global[$ name] = value
+	}
+	catch (error) {
+		show_debug_message(error)
+	}
+}
+
 if (room==StartUp){
 	global.volume = 100
 	global.tutorial=true
-    global.devMode=false
-    global.deactivateBubbles=false
-    global.deactivateCoins=false
-    global.vsync=true
-    global.fullScreen=false
+	global.devMode=false
+	global.deactivateBubbles=false
+	global.deactivateCoins=false
+	global.vsync=true
+	global.fullScreen=false
 	global.newCameraMode=true
-    display_reset(false,global.vsync)
-    window_set_fullscreen(global.fullScreen)
-    room_goto(Menu)
+	
+	display_reset(false,global.vsync)
+	window_set_fullscreen(global.fullScreen)
+}
+
+if (room==StartUp){
+	room_goto(Menu)
 }

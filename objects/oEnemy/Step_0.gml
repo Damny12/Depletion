@@ -206,3 +206,9 @@ if (!oMenu.paused and active){
     
     xspd/=xFriction
 }
+
+if (distance_to_object(oPlayer) > view_get_wport(0)){
+	active = false
+}else{
+	active = true
+}

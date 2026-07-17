@@ -1,6 +1,8 @@
 counts = []
 i = 0
 
+file_delete("save.json")
+
 for (y = 416; y <= 576; y+=128) {
 	for (x = 256; x <= 1024; x+=128) { 
 		skill = noone

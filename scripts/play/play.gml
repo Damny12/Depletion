@@ -1,7 +1,4 @@
 function play(){
-	if (global.tutorial){
-		room_goto(Tutorial)
-	}else{
-		room_goto(Levels)
-	}
+	oSailor.ogY = oSailor.y
+	oSailor.pulledUnder = 1
 }

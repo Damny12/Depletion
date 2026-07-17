@@ -32,4 +32,5 @@ if (ticks<=0){
     loss=false
 }
 
+draw_set_font(GUI_Font)
 draw_text_transformed(40,40,global.floorLevel,3,3,0)

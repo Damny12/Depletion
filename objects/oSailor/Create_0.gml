@@ -10,6 +10,13 @@ rainer = noone
 emitter = noone
 
 ogY = y
+ogX = x
 
 stretchY=0
 stretchX=0
+
+sounds = 0
+
+pulledUnder = 0
+tick = 0
+tickAmount = 3

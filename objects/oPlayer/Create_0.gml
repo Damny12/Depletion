@@ -32,10 +32,10 @@ naturalDrain=0.003
 movementDrain=0.001
 enemyDrain=0.1
 maxOxygen=10
-drainMult=1/root(Count(global.skills,"Breathing")+1,4)
+drainMult=1/root(count(global.skills,"Breathing")+1,4)
 
 source=""
-drainIncrease=Count(global.modifiers,GrowingPressure)*0.04
+drainIncrease=count(global.modifiers,GrowingPressure)*0.04
 
 //enemy stuff
 iframes=0
@@ -61,9 +61,9 @@ lastCollect=false
 totalCoins=0
 
 //skills
-attackDmg=1+Count(global.skills,"Strength")
+attackDmg=1+count(global.skills,"Strength")
 
-knockbackMult=1+sqrt(Count(global.skills,"Knockback"))/4
+knockbackMult=1+sqrt(count(global.skills,"Knockback"))/4
 
 //poison
 poisonTicks=[]
@@ -73,7 +73,7 @@ poisonDmg=1
 glideToggle=false
 glideGrav=defaultgrav/10
 glideTerminal=defaultTermVel/2
-glideSpeed=defaultMoveSpd*(1+Count(global.skills,"Glide")/8)
+glideSpeed=defaultMoveSpd*(1+count(global.skills,"Glide")/8)
 glideSoftCapSpeed=0.02+defaultgrav
 
 //stretching
@@ -81,30 +81,30 @@ stretchY = 0
 stretchX = 0
 
 //poison timing
-for(var i=0;i<Count(global.skills,"Poison");i++){
-	array_push(poisonTicks,60*(round(i/Count(global.skills,"Poison")*10))/10)
+for(var i=0;i<count(global.skills,"Poison");i++){
+	array_push(poisonTicks,60*(round(i/count(global.skills,"Poison")*10))/10)
 }
 
-if (Count(global.skills,"Poison")==0){
+if (count(global.skills,"Poison")==0){
 	poisonDmg=0
 }else{
 	poisonDmg=1
 }
 
 //set weapon
-if (Count(global.skills,"Bow")==1){
+if (count(global.skills,"Bow")==1){
 	array_delete(global.skills,array_get_index(global.skills,"Bow"),1)
 	global.weapon=oArrow
 	attackWeapon=global.weapon
 }
 
-if (Count(global.skills,"Sword")==1){
+if (count(global.skills,"Sword")==1){
 	array_delete(global.skills,array_get_index(global.skills,"Sword"),1)
 	global.weapon=oAttack
 	attackWeapon=global.weapon
 }
 
-if (Count(global.skills,"Hammer")==1){ 
+if (count(global.skills,"Hammer")==1){ 
 	array_delete(global.skills,array_get_index(global.skills,"Sword"),1)
 	global.weapon=oHammer
 	attackWeapon=global.weapon
@@ -115,7 +115,7 @@ if (global.weapon == oHammer){
 	attackDmg=floor(attackDmg)
 	hammerOxygen=[]
 	
-	var fractionEquation = 11+Count(global.skills,"Breathing") //want to be able to attack 10 times, so make the number 11
+	var fractionEquation = 11+count(global.skills,"Breathing") //want to be able to attack 10 times, so make the number 11
 	var _hammerOxygenIncrement=maxOxygen/(fractionEquation)
 	
 	for (var i=0;i<fractionEquation;i++){
@@ -135,16 +135,16 @@ for (var i =0;i<array_length(global.modifiers);i++){
 	})
 }
 
-instance_create_layer(x,y+160,"PlayerStuff",oOxygenBar)
-
 global.tutorial=false
 
 //set weapon stats
 if (global.weapon==oArrow){
-	attackLength=-Count(global.skills,"Reload")*2
+	attackLength=-count(global.skills,"Reload")*2
 	attackCooldown=40
 }
 
 if (global.devMode){
 	global.finalCoins=99
 }
+
+instance_create_depth(x,y,0,oOxygenBar)

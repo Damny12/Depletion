@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"load",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"load",
+  "parent":{
+    "name":"buttons",
+    "path":"folders/scripts/GUI/buttons.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

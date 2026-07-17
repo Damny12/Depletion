@@ -13,6 +13,7 @@
     {"name":"inst_2BFFFE1","path":"rooms/Menu/Menu.yy",},
     {"name":"inst_174918A3","path":"rooms/Menu/Menu.yy",},
     {"name":"inst_2B976FEE","path":"rooms/Menu/Menu.yy",},
+    {"name":"inst_45FC5DFF","path":"rooms/Menu/Menu.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -20,7 +21,8 @@
         {"$GMRInstance":"v4","%Name":"inst_7ABF63CC","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_7ABF63CC","objectId":{"name":"oButton","path":"objects/oButton/oButton.yy",},"properties":[
             {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oButton","path":"objects/oButton/oButton.yy",},"propertyId":{"name":"func","path":"objects/oButton/oButton.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"play",},
             {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oButton","path":"objects/oButton/oButton.yy",},"propertyId":{"name":"follow_player","path":"objects/oButton/oButton.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"True",},
-          ],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":77.0,"scaleY":9.0,"x":672.0,"y":128.0,},
+            {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oButton","path":"objects/oButton/oButton.yy",},"propertyId":{"name":"button_text","path":"objects/oButton/oButton.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"\"New Game\"",},
+          ],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":37.0,"scaleY":9.0,"x":352.0,"y":128.0,},
         {"$GMRInstance":"v4","%Name":"inst_2C45AB28","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_2C45AB28","objectId":{"name":"oButton","path":"objects/oButton/oButton.yy",},"properties":[
             {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oButton","path":"objects/oButton/oButton.yy",},"propertyId":{"name":"button_text","path":"objects/oButton/oButton.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"\"Settings\"",},
             {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oButton","path":"objects/oButton/oButton.yy",},"propertyId":{"name":"func","path":"objects/oButton/oButton.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"function() {room_goto(Settings)}",},
@@ -41,6 +43,11 @@
             {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oText","path":"objects/oText/oText.yy",},"propertyId":{"name":"button_text","path":"objects/oText/oText.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"\"Tutorial\"",},
             {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oText","path":"objects/oText/oText.yy",},"propertyId":{"name":"font_size","path":"objects/oText/oText.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"2",},
           ],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":1280.0,"y":32.0,},
+        {"$GMRInstance":"v4","%Name":"inst_45FC5DFF","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_45FC5DFF","objectId":{"name":"oButton","path":"objects/oButton/oButton.yy",},"properties":[
+            {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oButton","path":"objects/oButton/oButton.yy",},"propertyId":{"name":"func","path":"objects/oButton/oButton.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"load",},
+            {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oButton","path":"objects/oButton/oButton.yy",},"propertyId":{"name":"follow_player","path":"objects/oButton/oButton.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"True",},
+            {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oButton","path":"objects/oButton/oButton.yy",},"propertyId":{"name":"button_text","path":"objects/oButton/oButton.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"\"Continue\"",},
+          ],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":37.0,"scaleY":9.0,"x":992.0,"y":128.0,},
       ],"layers":[],"name":"GUI","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRAssetLayer":"","%Name":"wave2","assets":[
         {"$GMRSpriteGraphic":"v1","%Name":"graphic_CAE6D80","animationSpeed":1.0,"colour":4294967295,"frozen":false,"headPosition":0.0,"ignore":false,"inheritedItemId":null,"inheritItemSettings":false,"name":"graphic_CAE6D80","resourceType":"GMRSpriteGraphic","resourceVersion":"2.0","rotation":0.0,"scaleX":21.5,"scaleY":-15.0,"spriteId":{"name":"sWave2","path":"sprites/sWave2/sWave2.yy",},"x":0.0,"y":1472.0,},

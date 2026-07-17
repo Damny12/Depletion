@@ -164,13 +164,15 @@ if (!oMenu.paused){
     
     //bouncin' on the trampoline
     if (place_meeting(x,y,_bouncers)){
+		stretchY = 1.5
+		stretchX = -1
     	if (yspd<=0){
-    			yspd=-5
-    		} else{
-    			yspd*=-2
-    			if (abs(yspd)>6 and sign(yspd)!=0){ 
-    				yspd=6*sign(yspd)
-    			}
+   			yspd=-5
+  		} else{
+   			yspd*=-2
+			if (abs(yspd)>6 and sign(yspd)!=0){ 
+				yspd=6*sign(yspd)
+			}
     	}
     	glideToggle=false
     }
@@ -232,18 +234,8 @@ if (!oMenu.paused){
         inAir=true
     }
     
-    //Hanging
-    if (place_meeting(x,y-yspd,layer_tilemap_get_id("Ground"))){
-    			grav =- defaultgrav
-    			jmpspd=1
-    			oxygen-=movementDrain*drainMult
-    	}else{
-    			grav=defaultgrav
-    			jmpspd=defaultjump
-    }
-    
     //glide
-    if (Count(global.skills,"Glide") >= 1 && yspd >= termvel-2.5){
+    if (count(global.skills,"Glide") >= 1 && yspd >= termvel-2.5){
     	glideToggle=true
     }
     
@@ -435,11 +427,17 @@ if (!oMenu.paused){
     	if (coins<=0 and coinFrame>=90){
     		makingCoins=false
             if (lastCollect and coinFrame){
-				if (room == Levels or room == Tutorial){
+				if (room == Levels or room == Load){
 					global.enemyHp+=1
-					room_goto(PhysicalShop)
+					instance_create_depth(x,y,depth,oTransition,{
+						fading_out:false,
+						target_room:PhysicalShop
+					})
 				}else{
-					room_goto(Levels)
+					instance_create_depth(x,y,depth,oTransition,{
+						fading_out:false,
+						target_room:Levels
+					})
 					global.coinOxygenConversion = 1
 				}
             }
@@ -450,6 +448,6 @@ if (!oMenu.paused){
     knockbackTicks++
 	
 	//lerp stretching
-	stretchX = quadraticTween(stretchX, 0,0.35)
-	stretchY = quadraticTween(stretchY, 0,0.35)
+	stretchX = powerTween(stretchX, 0,0.35,2)
+	stretchY = powerTween(stretchY, 0,0.35,2)
 }

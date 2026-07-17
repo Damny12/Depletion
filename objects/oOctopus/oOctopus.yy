@@ -15,6 +15,7 @@
     {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oSpeaker","path":"objects/oSpeaker/oSpeaker.yy",},"propertyId":{"name":"textDelay","path":"objects/oSpeaker/oSpeaker.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"3",},
     {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oSpeaker","path":"objects/oSpeaker/oSpeaker.yy",},"propertyId":{"name":"textSize","path":"objects/oSpeaker/oSpeaker.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"2",},
     {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oSpeaker","path":"objects/oSpeaker/oSpeaker.yy",},"propertyId":{"name":"useLetters","path":"objects/oSpeaker/oSpeaker.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"True",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oSpeaker","path":"objects/oSpeaker/oSpeaker.yy",},"propertyId":{"name":"deleteTicks","path":"objects/oSpeaker/oSpeaker.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"100",},
   ],
   "parent":{
     "name":"NPCs",
