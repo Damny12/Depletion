@@ -9,8 +9,8 @@
   "name":"oCrabClaw",
   "overriddenProperties":[],
   "parent":{
-    "name":"bosses",
-    "path":"folders/objects/enemies/bosses.yy",
+    "name":"king crab",
+    "path":"folders/objects/enemies/bosses/king crab.yy",
   },
   "parentObjectId":null,
   "persistent":false,

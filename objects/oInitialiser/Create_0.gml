@@ -50,54 +50,149 @@ global.leftKey="A"
 global.spaceKey="W"
 global.attackKey="E"
 
+global.cardFunctions = {
+	weapons:[
+		function(){
+			return [global.weapon]
+		},
+		function(){
+			return [global.weapon]
+		},
+		function(){
+			return [global.weapon]
+		},
+		function(){
+			return [global.weapon]
+		},
+		function(){
+			return ["!",oArrow]
+		},
+		function(){
+			return ["!",oAttack]
+		},
+		function(){
+			return [oArrow]
+		},
+		function(){
+			return ["!",oHammer]
+		},
+	],
+	 
+	inflates:[
+		function(){
+			global.cards[0].cost += 1
+		},
+		function(){
+			global.cards[1].cost += 1
+		},
+		function(){
+			global.cards[2].cost += 1
+		},
+		function(){
+			global.cards[3].cost += 1
+		},
+		function(){
+			global.cards[4].cost += 1
+		},
+		function(){
+			global.cards[5].cost += 1
+		},
+		function(){
+			global.cards[6].cost += 1
+		},
+		function(){
+			global.cards[7].cost += 1
+		},
+	]
+}
 global.cards=[{
 	title:"Poison",
 	asset:poison,
 	cost:4,
-	weapon:[global.weapon],
-	isWeapon:false
+	weapon:function(){
+		return [global.weapon]
+	},
+	isWeapon:false,
+	inflate:function (){
+		global.cards[0].cost += 1
+	}
 },{
 	title:"Strength",
 	asset:strength,
 	cost:5,
-	weapon:[global.weapon],
-	isWeapon:false
+	weapon:function(){
+		return [global.weapon]
+	},
+	isWeapon:false,
+	inflate:function (){
+		global.cards[1].cost += 1
+	}
 },{
 	title:"Knockback",
 	asset:knockback,
 	cost:3,
-	weapon:[global.weapon],
-	isWeapon:false
+	weapon:function(){
+		return [global.weapon]
+	},
+	isWeapon:false,
+	inflate:function (){
+		global.cards[2].cost += 1
+	}
 },{
 	title:"Breathing",
 	asset:BreathHolding,
 	cost:6,
-	weapon:[global.weapon],
-	isWeapon:false
+	weapon:function(){
+		return [global.weapon]
+	},
+	isWeapon:false,
+	inflate:function (){
+		global.cards[3].cost += 1
+	}
 },{
 	title:"Bow",
 	asset:BowAndArrow,
 	cost:8,
-	weapon:["!",oArrow],
-	isWeapon:true
+	weapon:function(){
+		return ["!",oArrow]
+	},
+	isWeapon:true,
+	inflate:function (){
+		global.cards[4].cost += 1
+	}
 },{
 	title:"Sword",
 	asset:Sword,
 	cost:11,
-	weapon:["!",oAttack],
-	isWeapon:true
+	weapon:function(){
+		return ["!",oAttack]
+	},
+	isWeapon:true,
+	inflate:function (){
+		global.cards[5].cost += 1
+	}
 },{
 	title:"Reload",
 	asset:ArrowReload,
 	cost:8,
-	weapon:[oArrow],
-	isWeapon:false
+	weapon:function(){
+		return [oArrow]
+	},
+	isWeapon:false,
+	inflate:function (){
+		global.cards[6].cost += 1
+	}
 },{
 	title:"Hammer",
 	asset:Hammer,
 	cost:13,
-	weapon:["!",oHammer],
-	isWeapon:true
+	weapon:function(){
+		return ["!",oHammer]
+	},
+	isWeapon:true,
+	inflate:function (){
+		global.cards[7].cost += 1
+	}
 }]
 
 function setGlobal(name,value){

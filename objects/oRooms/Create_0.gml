@@ -9,42 +9,45 @@ randomise()
 picks=0
 
 //block section
-flat=[[0,0,0],[1,0,0],[2,0,0],[3,0,0],[4,0,0],[5,0,0],[6,0,0],[7,0,0],[8,0,0],[9,0,0]]
-stairup=[[0,0,0],[1,-1,0],[2,-2,0],[3,-3,0]]
-stairdown=[[0,0,0],[1,1,0],[2,2,0],[3,3,0]]
-drop=[[1,4,0]]
+flat = [[0,0,0],[1,0,0],[2,0,0],[3,0,0],[4,0,0],[5,0,0],[6,0,0],[7,0,0],[8,0,0],[9,0,0]]
+stairup = [[0,0,0],[1,-1,0],[2,-2,0],[3,-3,0]]
+stairdown = [[0,0,0],[1,1,0],[2,2,0],[3,3,0]]
+drop = [[1,4,0]]
 
 //save data
 saveData = []
 
 //crab enemies
-dropoff=[[0,0,0],[1,0,0],[2,0,0],[2,-1,2],[3,0,0],[4,0,0],[5,2,0]]
-pit=[[0,0,0],[1,3,0],[2,3,0],[2,2,2],[3,3,0],[4,3,0],[5,2,0],[6,1,0],[7,0,0],[8,0,0]]
-higher=[[0,0,0],[1,-1,0],[2,-2,0],[3,-2,0],[4,-1,0],[5,-1,0],[4,-2,1],[5,-2,1],[6,-2,0],[7,-2,0],[8,-2,0]]
-plateu=[[0,0,0],[1,0,0],[2,-1,0],[3,-1,0],[4,-1,0],[5,-1,0],[5,-2,2],[6,-1,0],[7,-1,0],[8,-1,0],[9,0,0],[10,0,0]]
+dropoff = [[0,0,0],[1,0,0],[2,0,0],[2,-1,2],[3,0,0],[4,0,0],[5,2,0]]
+pit = [[0,0,0],[1,3,0],[2,3,0],[2,2,2],[3,3,0],[4,3,0],[5,2,0],[6,1,0],[7,0,0],[8,0,0]]
+higher = [[0,0,0],[1,-1,0],[2,-2,0],[3,-2,0],[4,-1,0],[5,-1,0],[4,-2,1],[5,-2,1],[6,-2,0],[7,-2,0],[8,-2,0]]
+plateu = [[0,0,0],[1,0,0],[2,-1,0],[3,-1,0],[4,-1,0],[4,-2,2],[5,-1,0],[6,-1,0],[7,0,0],[8,0,0]]
 
 //seahorse enemies
-flatSeaHorse=[[0,0,0],[1,0,0],[2,0,0],[3,0,0],[2,-1,4],[4,0,0],[5,1,0]]
-stairSeaHorse=[[0,0,0],[1,-1,0],[2,-2,0],[3,-3,0],[4,-3,0],[4,-4,4],[5,-3,0],[6,-3,0],[7,-3,0]]
-lavaSeaHorse=[[0,0,0],[1,1,0],[1,0,1],[2,1,0],[2,0,1],[3,0,0],[4,0,0],[5,0,0],[6,1,0],[6,0,1],[7,1,0],[7,0,1],[8,0,0],[8,-1,4],[9,0,0]]
-dipSeaHorse=[[0,0,0],[1,1,0],[2,2,0],[3,2,0],[4,2,0],[5,1,0],[6,1,0],[7,1,0],[7,0,4],[8,1,0]]
+flatSeaHorse = [[0,0,0],[1,0,0],[2,0,0],[3,0,0],[2,-1,4],[4,0,0],[5,1,0]]
+stairSeaHorse = [[0,0,0],[1,-1,0],[2,-2,0],[3,-3,0],[4,-3,0],[4,-4,4],[5,-3,0],[6,-3,0],[7,-3,0]]
+lavaSeaHorse = [[0,0,0],[1,1,0],[1,0,1],[2,1,0],[2,0,1],[3,0,0],[4,0,0],[5,0,0],[6,1,0],[6,0,1],[7,1,0],[7,0,1],[8,0,0],[8,-1,4],[9,0,0]]
+dipSeaHorse = [[0,0,0],[1,1,0],[2,2,0],[3,2,0],[4,2,0],[5,1,0],[6,1,0],[7,1,0],[7,0,4],[8,1,0]]
 
 //sword fish enemies
-flatSwordFish=[[0,0,0],[1,0,0],[2,0,0],[3,0,0],[4,0,0],[4,-1,5],[5,0,0],[6,0,0],[7,0,0],[8,0,0],[9,0,0]]
+flatSwordFish = [[0,0,0],[1,0,0],[2,0,0],[3,0,0],[4,0,0],[4,-1,5],[5,0,0],[6,0,0],[7,0,0],[8,0,0],[9,0,0]]
+fallSwordFish = [[0,0,0],[1,2,0],[2,2,0],[3,2,0],[4,2,0],[2,1,5],[5,2,0],[6,2,0]]
+stairSwordFish = [[0,0,0],[0,-1,5],[1,0,0],[2,0,0],[3,0,0],[4,0,0],[5,-1,0],[6,-2,0],[7,-3,0],[8,-4,0],[9,-4,0]]
+lavaSwordFish = [[0,0,0],[1,0,0],[1,-1,5],[2,0,0],[3,0,0],[4,0,0],[5,1,0],[6,1,0],[6,0,1],[5,0,1],[7,0,0],[8,0,0],[9,0,0]]
 
 //falling
-flatFall=[[0,0,0],[1,0,0],[2,0,-1],[3,0,0],[4,0,0],[5,0,0]]
+flatFall = [[0,0,0],[1,0,0],[2,0,-1],[3,0,0],[4,0,0],[5,0,0]]	
 
 //flat,stairup,stairdown,drop
 if (global.floorLevel==0){
-	global.blocks=[flat,stairup,stairdown,drop]
-	global.roomEnemies=[dropoff,pit,higher,plateu]
+	global.blocks = [flat,stairup,stairdown,drop]
+	global.roomEnemies = [dropoff,pit,higher,plateu]
 }
 
 //rarities
-common=[flatSeaHorse,stairSeaHorse,dipSeaHorse]
-uncommon=[lavaSeaHorse]
-rare=[flatSwordFish]
+common = [flatSeaHorse,stairSeaHorse,dipSeaHorse]
+uncommon = [lavaSeaHorse,flatSwordFish,fallSwordFish]
+rare = [stairSwordFish,lavaSwordFish]
 
 //roll for rarity
 function rollRarity(){
@@ -67,8 +70,8 @@ function rollRarity(){
 }
 
 repeat (global.floorLevel) {
-	roll=rollRarity()
-	if (roll=="Common"){
+	roll = rollRarity()
+	if (roll == "Common"){
 		var _rand=irandom_range(0,array_length(common)-1)
 		
 		if (!array_contains(global.roomEnemies,common[_rand])){
@@ -76,11 +79,19 @@ repeat (global.floorLevel) {
 		}
 	}
 	
-	if (roll="Uncommon"){
+	if (roll == "Uncommon"){
 		var _rand=irandom_range(0,array_length(uncommon)-1)
 		
 		if (!array_contains(global.roomEnemies,uncommon[_rand])){
 			array_push(global.roomEnemies,uncommon[_rand])
+		}
+	}
+	
+	if (roll == "Rare"){
+		var _rand=irandom_range(0,array_length(rare)-1)
+		
+		if (!array_contains(global.roomEnemies,rare[_rand])){
+			array_push(global.roomEnemies,rare[_rand])
 		}
 	}
 }
@@ -167,7 +178,7 @@ var _lowPosBlock = []
 var _highPosBlock = []
 var _lowPosEnemy = []
 var _highPosEnemy = []
-var _prohibited=[]
+var _prohibited = []
 
 var _amount=irandom_range(roommin,roommax)
 
@@ -192,7 +203,7 @@ for (var i=0; i<array_length(global.roomEnemies);i++){
 //make multiple blocks
 repeat (_amount) {
 	if (irandom_range(1,2) == 1){		
-		_prohibited=[]
+		_prohibited = []
         
 		_pick=irandom_range(0,array_length(global.roomEnemies)-1)
 		
@@ -220,7 +231,7 @@ repeat (_amount) {
 	} else{
 		picks+=1
 		_pick=irandom_range(0,array_length(global.blocks)-1)
-		_prohibited=[]
+		_prohibited = []
 		
 		//prevent repeats
 		while (_pick==_lastPick) {

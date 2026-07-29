@@ -47,14 +47,12 @@ function TileGround(tiles){
 
 var _file = file_text_open_read("save.json")
 
+
 text = file_text_read_string(_file)
 save = json_parse(text)
 
 function setGlobal(name,value){
 	try {
-		if (name != "persistentGlobal") {
-			return
-		}
 		global[$ name] = value
 	}
 	catch (error) {
@@ -62,7 +60,14 @@ function setGlobal(name,value){
 	}
 }
 
+function setFunction(element, index){
+	save.gameVariables.cards[index].weapon = global.cardFunctions.weapons[index] 
+	save.gameVariables.cards[index].inflate = global.cardFunctions.inflates[index] 
+}
+
 struct_foreach(save.gameVariables,setGlobal)
+
+array_foreach(save.gameVariables.cards,setFunction)
 
 instance_create_layer(656,352,"PlayerStuff",oPlayer,{
 	image_xscale:2,
@@ -98,3 +103,5 @@ for (x=0;x<room_width;x+=32){
 		}
 	}
 }
+
+show_debug_message(global.skills)

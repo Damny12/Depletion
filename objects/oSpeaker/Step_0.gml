@@ -3,7 +3,7 @@ if (!oMenu.paused){
 		if (instance_exists(dialogue)){
 			instance_destroy(dialogue)
 		}else{
-			background = instance_create_depth(display_get_gui_width()/2,display_get_gui_height()-200,101,oButton,{
+			background = instance_create_depth(display_get_gui_width()/2,display_get_gui_height()-200,2,oButton,{
 				func:function(){},
 				sprite_index:sDialogueBox,
 				button_text:"",
@@ -11,10 +11,10 @@ if (!oMenu.paused){
 				image_xscale:(display_get_gui_width()/sprite_get_width(sDialogueBox))-2,
 				image_yscale:20,
 				image_alpha:0.95,
-				allow_hovering:false
+				allow_hovering:false,
 			})
 			
-			dialogue = instance_create_depth(x,y,100,oDialouge,{
+			dialogue = instance_create_depth(x,y,1,oDialouge,{
 				text:dialogueText,
 				wrapLetters:wrap,
 				textValue:textValue,
@@ -25,7 +25,7 @@ if (!oMenu.paused){
 				dissapearTicks:deleteTicks
 			})
 			
-			speakerIcon = instance_create_depth(display_get_gui_width()/2,display_get_gui_height()-300,102,oButton,{
+			speakerIcon = instance_create_depth(display_get_gui_width()/2,display_get_gui_height()-300,3,oButton,{
 				func:function(){},
 				sprite_index:sprite_index,
 				button_text:"",

@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":0,
   "parent":{
-    "name":"menu",
-    "path":"folders/objects/GUI/menu.yy",
+    "name":"settings",
+    "path":"folders/graphics/menu/settings.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

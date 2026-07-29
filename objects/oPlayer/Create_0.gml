@@ -1,3 +1,5 @@
+global.tutorial=false
+
 // moving
 moveDir=0
 moveSpd=0.4
@@ -11,6 +13,10 @@ xFriction=1.1
 xTermvel=3
 
 prevDir=0
+
+//grabbing
+grabbed = false
+grabTarget = noone
 
 //ticking
 ticks=0
@@ -49,7 +55,17 @@ attackLength=20
 attackObject=noone
 attackWeapon=global.weapon
 
-knockbackMoveSpd=0
+//hammer noises
+hammerSlashes = [
+	hammer_slash_1,
+	hammer_slash_2,
+	hammer_slash_3,
+	hammer_slash_4,
+	hammer_slash_5,
+	hammer_slash_6,
+]
+
+knockbackMoveSpd=defaultMoveSpd/4
 
 //coins
 coinFrame=0
@@ -69,16 +85,24 @@ knockbackMult=1+sqrt(count(global.skills,"Knockback"))/4
 poisonTicks=[]
 poisonDmg=1
 
-//glide
-glideToggle=false
-glideGrav=defaultgrav/10
-glideTerminal=defaultTermVel/2
-glideSpeed=defaultMoveSpd*(1+count(global.skills,"Glide")/8)
-glideSoftCapSpeed=0.02+defaultgrav
-
 //stretching
 stretchY = 0
 stretchX = 0
+
+//dev mode tools
+flying = false
+
+upgradeLevel = 1
+drawUpgrade = false
+spawnEnemy = false
+spawner = noone
+scroll = 0
+
+//currency
+global.finalOxygen=floor(oxygen)
+global.finalEnemyKillCoins=0
+
+
 
 //poison timing
 for(var i=0;i<count(global.skills,"Poison");i++){
@@ -123,19 +147,12 @@ if (global.weapon == oHammer){
 	}
 }
 
-
-//currency
-global.finalOxygen=floor(oxygen)
-global.finalEnemyKillCoins=0
-
 //modifier creation
 for (var i =0;i<array_length(global.modifiers);i++){
 	instance_create_depth(372+i*32,y+128,3,CardModifier,{
 		sprite_index:global.modifiers[i]
 	})
 }
-
-global.tutorial=false
 
 //set weapon stats
 if (global.weapon==oArrow){
@@ -147,4 +164,4 @@ if (global.devMode){
 	global.finalCoins=99
 }
 
-instance_create_depth(x,y,0,oOxygenBar)
+instance_create_depth(x,y,layer_get_depth("Ladder")+4,oOxygenBar)

@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"hammer_slash_2",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":1,
+  "compressionQuality":4,
+  "conversionMode":0,
+  "duration":0.4367347,
+  "exportDir":"",
+  "name":"hammer_slash_2",
+  "parent":{
+    "name":"hammer",
+    "path":"folders/audio/SFX/slashes/hammer.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"hammer_slash_2.mp3",
+  "volume":1.0,
+}

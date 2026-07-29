@@ -8,8 +8,8 @@
   "name":"oRooms",
   "overriddenProperties":[],
   "parent":{
-    "name":"scriptRunners",
-    "path":"folders/objects/scriptRunners.yy",
+    "name":"spawners",
+    "path":"folders/objects/scriptRunners/spawners.yy",
   },
   "parentObjectId":null,
   "persistent":false,

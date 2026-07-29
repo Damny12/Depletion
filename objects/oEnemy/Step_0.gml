@@ -27,6 +27,7 @@ if (!oMenu.paused and active){
         x-=movespeed*movDir*xspd
         xspd=0
         movDir*=-1
+		image_xscale*=-1
      }
      
      //Can I see the player
@@ -87,6 +88,7 @@ if (!oMenu.paused and active){
 		            x-=movespeed*movDir*xspd
 		            xspd=0
 		            movDir*=-1
+					image_xscale *= -1
 		        }
 				
 				var hitPartSysLeft=part_system_create(ParticleSystemHitLeft)
@@ -151,15 +153,11 @@ if (!oMenu.paused and active){
 		var _seePlayer=seeObject(oPlayer)
 		
 		if ((_seePlayer[1] <= backAwayDistance) and backAway and _seePlayer[0]){
-			if (x-oPlayer.x <= 0){
-				movDir=-1
-			}else{
-				movDir=1
-			}
+			xspd-=movespeed*movDir
 			wanders=false
 			if (shootDelayTick>=0){
 				instance_create_layer(x,y,"Enemy",projectileObject,{
-					image_xscale:-movDir
+					image_xscale:movDir
 				})
 				shootDelayTick=-projectileDelay
 			}
@@ -167,7 +165,6 @@ if (!oMenu.paused and active){
 			if(place_meeting(x+xspd,y,layer_tilemap_get_id("Ground")) /*Did i hit a wall?*/ or !place_meeting(x+xspd,y+32,layer_tilemap_get_id("Ground")) /*Is there ground infront of me?*/) {
 				x-=movespeed*movDir*xspd
 				xspd=0
-				movDir*=-1
 			}
 		}else{
 			wanders=true
@@ -175,12 +172,13 @@ if (!oMenu.paused and active){
 		
 		if (wanders){
 			xspd+=movespeed
-		}
-		
-		if(place_meeting(x+xspd,y,layer_tilemap_get_id("Ground")) /*Did i hit a wall?*/ or !place_meeting(x+xspd,y+32,layer_tilemap_get_id("Ground")) /*Is there ground infront of me?*/) {
-			x-=movespeed*movDir*xspd
-			xspd=0
-			movDir*=-1
+			
+			if(place_meeting(x+xspd,y,layer_tilemap_get_id("Ground")) /*Did i hit a wall?*/ or !place_meeting(x+xspd,y+32,layer_tilemap_get_id("Ground")) /*Is there ground infront of me?*/) {
+				x-=movespeed*movDir*xspd
+				xspd=0
+				movDir*=-1
+				image_xscale *= -1
+			}
 		}
 	}
 	
@@ -193,8 +191,10 @@ if (!oMenu.paused and active){
 				wanderSpeed=1
 				if (irandom_range(0,1)==0){
 					movDir=-1
+					image_xscale = -1
 				}else{
 					movDir=1
+					image_xscale = 1
 				}
 			}
 		}
@@ -207,7 +207,7 @@ if (!oMenu.paused and active){
     xspd/=xFriction
 }
 
-if (distance_to_object(oPlayer) > view_get_wport(0)){
+if (distance_to_object(oPlayer) > view_get_wport(0)*1.5){
 	active = false
 }else{
 	active = true

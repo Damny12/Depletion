@@ -1,5 +1,5 @@
 if (!oMenu.paused){
-	if (global.floorLevel mod 5 == 0 and room!=BossRoom and global.floorLevel<0){
+	if (global.floorLevel mod 3 == 0 and room!=BossRoom and global.floorLevel<0){
 		room_goto(BossRoom)
 	}
 	
@@ -12,19 +12,6 @@ if (!oMenu.paused){
     if (sign(xspd) != 0){
         prevDir=sign(xspd)
     }
-    
-    if (keyboard_check(vk_f1) && keyboard_check(vk_shift) && global.devMode) {
-    	global.finalOxygen=floor(oxygen)
-    	coinCount=global.finalOxygen
-    	coins=coinCount
-    	makingCoins=true
-        lastCollect=true
-		endY=y
-    }
-    
-	if (keyboard_check(vk_f2) && keyboard_check(vk_shift) && global.devMode) {
-		oxygen = 0
-	}
 	
     var _ground=layer_tilemap_get_id("Ground")
     var _bouncers=[oCorpse]
@@ -41,6 +28,7 @@ if (!oMenu.paused){
     //direction
     moveDir=right_key-left_key
     
+	
     //xspd
     xspd+=moveDir*moveSpd
     
@@ -104,7 +92,6 @@ if (!oMenu.paused){
 	    		xspd=5*sign(x-_enemies[i].x)*_enemies[i].knockBackMult
 				yspd=-4
 				knockbackTicks=-30
-	    		glideToggle=false
 				
 				oCamera.shakePower = 3
 				oCamera.shakeValue = 2
@@ -122,6 +109,47 @@ if (!oMenu.paused){
 		}
     }
 	
+	//grabbing
+	for (var i = 0; i < instance_number(oTentacle); i++) {
+		if (place_meeting(x,y,instance_find(oTentacle,i)) and !grabbed and knockbackTicks >= 0){
+			moveSpd = 0
+			grav = 0
+			yspd = 0
+			jmpspd = defaultjump
+			
+			grabbed = true
+			grabTarget = instance_find(oTentacle,i)
+			oKraken.tickAmount = 0
+		}
+	}
+	
+	if (grabbed){
+		y = grabTarget.y + 10 * image_xscale
+		x = grabTarget.x
+		
+		if (place_meeting(x,y,_ground)){
+			jmpspd = defaultjump
+			moveSpd = defaultMoveSpd
+			grav = defaultgrav
+			
+			while (place_meeting(x,y,_ground)) {
+				y-=1
+			}
+			
+			instance_destroy(grabTarget)
+			grabTarget = noone
+			grabbed = false
+			
+			yspd = -6
+			xspd = 8 * sign(room_width/2 - x)
+			oxygen -= enemyDrain * oKraken.tentacleGrabDamage
+			source = "Enemy"
+			oOxygenBar.loss = true
+			knockbackTicks = -20
+			oKraken.tickAmount = 1
+		}
+	}
+	
 	for (var i=0;i<array_length(_projectiles);i++){
     	if (place_meeting(x,y,_projectiles[i]) and iframes<=0){
             source="Enemy"
@@ -131,7 +159,6 @@ if (!oMenu.paused){
 			xspd=4*sign(x-_projectiles[i].x)*_projectiles[i].knockBackMult
 			yspd=-3
 			knockbackTicks=-30
-    		glideToggle=false
 			
 			oCamera.shakePower = 2
 			oCamera.shakeValue = 2
@@ -174,7 +201,6 @@ if (!oMenu.paused){
 				yspd=6*sign(yspd)
 			}
     	}
-    	glideToggle=false
     }
     
     //jump
@@ -211,7 +237,6 @@ if (!oMenu.paused){
 		inAir=false
 		
     	yspd=0
-    	glideToggle=false
 		
 		if (tilemap_get_at_pixel(_ground,x,y+yspd) == 3){
 			instance_create_layer(x+96, y -256, "Enemy", oCrabSpawner)
@@ -230,26 +255,9 @@ if (!oMenu.paused){
     	}
     	
     	yspd=0
-    	glideToggle=false
         inAir=true
     }
-    
-    //glide
-    if (count(global.skills,"Glide") >= 1 && yspd >= termvel-2.5){
-    	glideToggle=true
-    }
-    
-    if (glideToggle){
-    	grav=glideGrav
-    	moveSpd=glideSpeed
-    	if (yspd>glideTerminal){
-    		yspd-=glideSoftCapSpeed
-    	}
-    }else{
-    	moveSpd=defaultMoveSpd
-    	termvel=defaultTermVel
-    }
-    
+	 
     if (knockbackTicks>=0){
         xTermvel=defaultXTermvel
         moveSpd=defaultMoveSpd
@@ -259,12 +267,7 @@ if (!oMenu.paused){
     }
     
     //sprite changing
-    function change(){
-    	if (glideToggle){
-    		sprite_index=sSlimeGlide
-    		return
-    	}
-    	
+    function change(){ 
     	if (sign(round(yspd))<0){
     		sprite_index=sJumpSlime
     		return  
@@ -321,6 +324,11 @@ if (!oMenu.paused){
     	attackObject=instance_create_layer(x,y,"PlayerStuff",attackWeapon,{
             image_xscale:sign(xspd)
         })
+		
+		if (attackWeapon == oHammer){
+			audio_play_sound(hammerSlashes[irandom_range(0,array_length(hammerSlashes)-1)], 0, false, global.volume/100)
+		}
+		
         if (sign(xspd)==0){
             attackObject.image_xscale=prevDir
         }
@@ -349,7 +357,7 @@ if (!oMenu.paused){
     x+=xspd
 	
     //coins
-    if (place_meeting(x,y,oLadder) and lastCollect==false){
+    if (place_meeting(x,y,oLadder) and !lastCollect){
         if (room==Tutorial){
             room_goto(Levels)
         }else{
@@ -391,12 +399,19 @@ if (!oMenu.paused){
 		oCamera.shakeValue = 2
 	}
     
+	//stop movement
+	if (lastCollect or place_meeting(x,y,oLadder)){
+		moveSpd = 0
+		xspd = 0
+		grav = 0
+		x = oLadder.x + 16
+	}
+	
     //coin
     if (makingCoins){
         if (lastCollect){
             drainMult=0
 			x = oLadder.x + 16
-			grav=0
 			yspd=0
 			if (coinFrame % 30 == 0){
 				y-=8
@@ -444,10 +459,173 @@ if (!oMenu.paused){
     	}
     }
 	
+	if (global.devMode) { 
+    	if (keyboard_check_pressed(ord("F")) and keyboard_check(vk_shift)) {
+			scroll = 0
+			flying = !flying
+			if (!flying){
+				grav = defaultgrav
+				termvel = defaultTermVel
+				xTermvel = defaultXTermvel
+			}else{
+				grav = 0
+			}
+		}
+		
+		if (keyboard_check_pressed(ord("C")) and keyboard_check(vk_shift)) {
+			global.finalCoins = infinity
+		}
+		
+		if (keyboard_check_pressed(ord("X")) and keyboard_check(vk_shift)) {
+			if (drainMult == 1/root(count(global.skills,"Breathing")+1,4)){
+				drainMult = 0
+			}else{
+				drainMult=1/root(count(global.skills,"Breathing")+1,4)
+			}
+		}
+		
+		if (keyboard_check_pressed(ord("Z")) and keyboard_check(vk_shift)) {
+			if (!drawUpgrade){
+				scroll = 0
+			}
+			drawUpgrade = !drawUpgrade
+		}
+		
+		if (keyboard_check_pressed(ord("R")) and keyboard_check(vk_shift)) {
+			if (!spawnEnemy){
+				scroll = 0
+				spawner = instance_create_layer(mouse_x,mouse_y,"Enemy",global.enemies[scroll])
+			}
+			spawnEnemy = !spawnEnemy
+		}
+		
+		//flight
+		if (flying){
+			if (keyboard_check(vk_shift) or keyboard_check(ord("S"))){
+				yspd = 2 * (scroll + 1)
+			}
+			
+			if (up_key){
+				yspd = -2 * (scroll + 1)
+			}
+			
+			if (!(keyboard_check(vk_shift) or up_key or keyboard_check(ord("S")))){
+				yspd = 0
+			}
+			
+			//scroll for more speed
+			if (mouse_wheel_up()){
+				scroll += 1
+				if (scroll > 10){
+					scroll = 10
+				}
+			}
+			
+			if (mouse_wheel_down()){
+				scroll -= 1
+				if (scroll <= 0){
+					scroll = 1
+				}
+			}
+			
+			termvel = (scroll + 1) * defaultTermVel
+			xTermvel = (scroll + 1) * defaultXTermvel
+			moveSpd = defaultMoveSpd * (scroll + 1)
+		}
+		
+		//enemy spawning
+		if (spawnEnemy){
+			
+			if (!instance_exists(spawner)){
+				spawner = noone
+			}
+			
+			spawner.x = mouse_x
+			spawner.y = mouse_y
+			
+			while (place_meeting(spawner.x,spawner.y-1,_ground)) {
+				spawner.y-=1
+			}
+			
+			while (!place_meeting(spawner.x,spawner.y,_ground)) {
+				spawner.y+=1
+			}
+			
+			spawner.y -= 1
+			
+			if (mouse_wheel_up()){
+				scroll += 1
+				if (scroll > array_length(global.enemies) - 2){
+					scroll = 0
+				}
+				
+				instance_destroy(spawner)
+				spawner = instance_create_layer(mouse_x,mouse_y,"Enemy",global.enemies[scroll])
+			}
+			
+			if (mouse_wheel_down()){
+				scroll -= 1
+				if (scroll < 0){
+					scroll = array_length(global.enemies) - 2
+				}
+				
+				instance_destroy(spawner)
+				spawner = instance_create_layer(mouse_x,mouse_y,"Enemy",global.enemies[scroll])
+			}
+			
+			if (mouse_check_button_pressed(mb_left)){
+				spawner = instance_create_layer(mouse_x,mouse_y,"Enemy",global.enemies[scroll])
+				
+				spawner.x = mouse_x
+				spawner.y = mouse_y
+			}
+		}else{
+			instance_destroy(spawner)
+			spawner = noone
+		}
+		
+		//upgrade spawning
+		if (drawUpgrade){ 
+			if (mouse_wheel_up()){
+				scroll += 1
+				show_debug_message(scroll)
+				if (scroll > array_length(global.cards) - 1){
+					scroll = 0
+				}
+			}
+			
+			if (mouse_wheel_down()){
+				scroll -= 1
+				show_debug_message(scroll)
+				if (scroll < 0){
+					scroll = array_length(global.cards) - 1
+				}
+			}
+			
+			if (mouse_check_button_pressed(mb_left)){
+				repeat (upgradeLevel) {
+					array_push(global.skills, global.cards[scroll].title)
+				}
+			}
+			
+			if (keyboard_check_pressed(vk_right)){
+				upgradeLevel += 1
+			}
+			
+			if (keyboard_check_pressed(vk_left)){
+				upgradeLevel -= 1
+				
+				if (upgradeLevel < 1){
+					upgradeLevel = 1
+				}
+			}
+		}
+    }
+	
     change()
     knockbackTicks++
 	
-	//lerp stretching
+	//tween stretching
 	stretchX = powerTween(stretchX, 0,0.35,2)
 	stretchY = powerTween(stretchY, 0,0.35,2)
 }
